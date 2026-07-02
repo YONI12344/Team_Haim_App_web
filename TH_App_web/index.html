@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Haim | אימון ריצה אישי</title>
+<meta name="description" content="Team Haim: פלטפורמת אימון ריצה אישי. תוכנית שבועית, מעקב נתונים, וקשר ישיר עם המאמן.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --cream: #F6F3EA;
+    --cream-2: #EFEBDF;
+    --navy: #131F35;
+    --navy-2: #1C2C4A;
+    --gold: #C8A250;
+    --gold-2: #E4C878;
+    --ink: #14213B;
+    --muted: #848994;
+    --line: rgba(19,31,53,0.10);
+    --line-strong: rgba(19,31,53,0.18);
+    --display: 'Frank Ruhl Libre', serif;
+    --body: 'Heebo', sans-serif;
+    --wordmark: 'Playfair Display', serif;
+    --max: 1140px;
+  }
+
+  *, ::before, ::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--cream); color:var(--ink); font-family:var(--body); line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+
+  .wrap { max-width:var(--max); margin:0 auto; padding:0 28px; }
+
+  .tag {
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  h1, h2, h3 { font-family:var(--display); line-height:1.15; }
+
+  /* ── HEADER ── */
+  header {
+    position:fixed; top:0; inset-inline:0; z-index:50;
+    background:rgba(246,243,234,.88);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav {
+    max-width:var(--max); margin:0 auto;
+    padding:15px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand {
+    font-family:var(--wordmark);
+    font-style:italic;
+    font-size:20px;
+    color:var(--navy);
+  }
+  .nav-links {
+    display:flex; gap:28px;
+    font-size:14px; font-weight:500; color:var(--ink);
+  }
+  .nav-links a { opacity:.65; transition:opacity .2s; }
+  .nav-links a:hover { opacity:1; }
+  .nav-cta {
+    font-size:13.5px; font-weight:700;
+    background:var(--navy); color:var(--gold-2);
+    padding:10px 20px; border-radius:999px;
+    transition:background .2s, transform .2s;
+  }
+  .nav-cta:hover { background:var(--ink); transform:translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero { padding:130px 0 90px; }
+  .hero-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px; align-items:center;
+  }
+  .hero-left { }
+  .hero-label { margin-bottom:18px; }
+  .hero h1 {
+    font-size:clamp(36px,4.8vw,58px);
+    font-weight:700;
+    max-width:520px;
+  }
+  .hero h1 em { font-style:normal; color:var(--gold); }
+  .hero-sub {
+    margin-top:20px;
+    font-size:16px; line-height:1.7;
+    color:#4B5162;
+    max-width:440px;
+  }
+  .hero-actions {
+    margin-top:32px;
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  .btn-primary {
+    font-size:15px; font-weight:700;
+    background:var(--gold); color:var(--navy);
+    padding:15px 28px; border-radius:999px;
+    border:1px solid var(--gold);
+    display:inline-block;
+    transition:background .2s, transform .2s;
+  }
+  .btn-primary:hover { background:var(--gold-2); transform:translateY(-2px); }
+  .hero-note { font-size:13px; color:var(--muted); }
+
+  .phone {
+    position:relative; max-width:280px; margin:0 auto;
+    border-radius:36px; border:8px solid var(--navy);
+    overflow:hidden; background:var(--navy);
+    box-shadow:0 40px 70px -30px rgba(19,31,53,.42);
+  }
+  .phone img { width:100%; display:block; aspect-ratio:9/16; object-fit:cover; object-position:center 15%; }
+
+  /* ── SECTIONS ── */
+  .section { border-top:1px solid var(--line); padding:88px 0; }
+  .section-head {
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:36px; margin-bottom:52px; flex-wrap:wrap;
+  }
+  .section-title { font-size:clamp(28px,3.8vw,44px); font-weight:700; }
+  .section-desc { max-width:360px; color:var(--muted); font-size:15px; line-height:1.65; }
+
+  /* ── COACH ── */
+  .coach-grid {
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:56px; align-items:center;
+  }
+  .coach-photo {
+    border-radius:22px; overflow:hidden;
+    background:var(--cream-2);
+    aspect-ratio:4/5;
+    box-shadow:0 24px 56px -24px rgba(19,31,53,.32);
+  }
+  .coach-photo img {
+    width:100%; height:100%;
+    object-fit:cover; object-position:center 10%;
+  }
+  .coach-copy p {
+    font-size:16px; color:#3C4353;
+    margin-bottom:18px; max-width:540px; line-height:1.7;
+  }
+  .coach-copy p:first-child { font-size:18px; color:var(--ink); font-weight:500; }
+  .coach-facts {
+    margin-top:28px;
+    display:flex; flex-wrap:wrap; gap:24px 40px;
+    padding-top:24px; border-top:1px solid var(--line);
+  }
+  .coach-fact-k { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:4px; }
+  .coach-fact-v { font-family:var(--display); font-size:1rem; font-weight:500; }
+
+  /* ── FEATURES ── */
+  .features {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .feature-card {
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px 20px 28px;
+    transition:transform .25s, box-shadow .25s;
+  }
+  .feature-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 18px 36px -20px rgba(19,31,53,.22);
+  }
+  .feature-num {
+    font-family:var(--display);
+    font-size:13px; font-weight:700;
+    color:var(--gold);
+    margin-bottom:18px;
+    letter-spacing:.06em;
+  }
+  .feature-card h3 {
+    font-size:18px; font-weight:700;
+    font-family:var(--body);
+    margin-bottom:8px;
+  }
+  .feature-card p { font-size:13.5px; color:var(--muted); line-height:1.6; }
+
+  /* ── SCREENS ── */
+  .screens {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:26px;
+    margin-top:56px;
+  }
+  .screen {
+    background:var(--navy);
+    border-radius:22px;
+    padding:12px;
+    box-shadow:0 24px 48px -24px rgba(19,31,53,.35);
+  }
+  .screen img {
+    border-radius:14px;
+    width:100%; display:block;
+    aspect-ratio:9/16; object-fit:cover; object-position:center 20%;
+  }
+  .screen-cap {
+    color:var(--gold-2);
+    font-size:13px; font-weight:600;
+    text-align:center;
+    padding:12px 0 4px;
+    letter-spacing:.04em;
+  }
+
+  /* ── APPLY ── */
+  .apply { background:var(--navy); color:#fff; }
+  .apply .tag { color:var(--gold-2); }
+  .apply .section-title { color:#fff; }
+  .apply-grid {
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+  }
+  .apply-copy p {
+    color:#B9BECB; font-size:16px;
+    max-width:400px; margin-bottom:26px; line-height:1.7;
+  }
+  .apply-copy h2 {
+    font-size:clamp(22px,2.8vw,32px);
+    color:#fff; margin-bottom:16px;
+  }
+  .apply-steps { display:flex; flex-direction:column; gap:14px; margin-top:32px; }
+  .apply-step { display:flex; gap:14px; font-size:14px; color:#D6DAE3; align-items:flex-start; }
+  .apply-step-n {
+    font-family:var(--display);
+    color:var(--gold-2);
+    font-weight:700;
+    min-width:22px;
+    flex-shrink:0;
+  }
+
+  form {
+    background:#fff;
+    border-radius:22px;
+    padding:32px;
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .field { display:flex; flex-direction:column; gap:6px; }
+  .field label { font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; }
+  .field input, .field select, .field textarea {
+    background:var(--cream); border:1px solid transparent;
+    border-radius:10px; color:var(--ink);
+    font-family:var(--body); font-size:15px;
+    padding:12px 14px;
+    transition:border-color .2s;
+  }
+  .field select { appearance:none; -webkit-appearance:none; }
+  .field textarea { resize:vertical; min-height:80px; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline:none; border-color:var(--gold);
+  }
+  .field-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .submit-btn {
+    margin-top:4px;
+    font-size:15px; font-weight:700;
+    background:var(--gold); color:var(--navy);
+    border:none; border-radius:999px;
+    padding:15px 28px; cursor:pointer;
+    transition:background .2s, transform .2s;
+  }
+  .submit-btn:hover { background:var(--gold-2); transform:translateY(-2px); }
+  .form-note { font-size:12px; color:var(--muted); line-height:1.5; }
+
+  /* ── FOOTER ── */
+  footer { border-top:1px solid var(--line); padding:48px 0 32px; }
+  .footer-grid {
+    display:flex; justify-content:space-between; align-items:center;
+    gap:20px; flex-wrap:wrap;
+  }
+  .footer-links {
+    display:flex; gap:24px;
+    font-size:14px; font-weight:500; color:var(--muted);
+  }
+  .footer-links a { transition:color .2s; }
+  .footer-links a:hover { color:var(--ink); }
+  .footer-meta { margin-top:18px; font-size:12px; color:#A9ADB6; }
+
+  /* ── REVEAL ANIMATION ── */
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
+  .reveal.in { opacity:1; transform:none; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px) {
+    .hero-grid, .coach-grid, .apply-grid { grid-template-columns:1fr; }
+    .phone { max-width:220px; }
+    .features { grid-template-columns:repeat(2,1fr); }
+    .screens { grid-template-columns:1fr 1fr; }
+    .nav-links { display:none; }
+  }
+  @media(max-width:540px) {
+    .features { grid-template-columns:1fr; }
+    .screens { grid-template-columns:1fr; }
+    .field-row { grid-template-columns:1fr; }
+    .footer-grid { flex-direction:column; align-items:flex-start; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">Team Haim</a>
+    <nav class="nav-links">
+      <a href="#coach">המאמן</a>
+      <a href="#app">האפליקציה</a>
+      <a href="#apply">הצטרפות</a>
+    </nav>
+    <a href="#apply" class="nav-cta">בקשה להצטרפות</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <p class="tag hero-label">אימון ריצה אישי</p>
+        <h1>המאמן שלך.<br>התוכנית שלך.<br><em>סטנדרט אחד.</em></h1>
+        <p class="hero-sub">Team Haim היא פלטפורמת אימון ריצה אישי. תוכנית שבועית בנויה סביב המרחק שלך ושלבי העונה, מעקב נתונים בזמן אמת, וקשר ישיר עם המאמן, הכל דרך אפליקציה אחת.</p>
+        <div class="hero-actions">
+          <a href="#apply" class="btn-primary">בקשה להצטרפות</a>
+          <span class="hero-note">כל בקשה נבדקת אישית על ידי המאמן חיים</span>
+        </div>
+      </div>
+      <div class="reveal in">
+        <div class="phone">
+          <img src="yoni-main.jpg" alt="יוני חיים מאמן ריצה Team Haim">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACH -->
+  <section class="section wrap" id="coach">
+    <div class="section-head reveal">
+      <div>
+        <p class="tag" style="margin-bottom:12px;">המאמן</p>
+        <h2 class="section-title">יהונתן חיים</h2>
+      </div>
+      <p class="section-desc">כל רץ ב-Team Haim מתאמן מול מאמן אחד, תוכנית אחת, סטנדרט אחד. לא רשימת מתאמנים אנונימית.</p>
+    </div>
+
+    <div class="coach-grid reveal">
+      <div class="coach-photo">
+        <img src="yoni-last.jpeg" alt="יוני חיים, מאמן ריצה">
+      </div>
+      <div class="coach-copy">
+        <p>Team Haim נבנתה סביב רעיון אחד: רצים מתקדמים הכי מהר עם מאמן שבאמת מכיר אותם, את המרחק שלהם, את ההיסטוריה שלהם, ואת השבוע שעומד מולם.</p>
+        <p>כל מצטרף עובר שיחת היכרות אישית לפני שנבנית ולו תוכנית אחת. משם, התוכנית נבנית לפי שלבי העונה שלך: בסיס, בנייה, שיא, עם עדכונים שוטפים לפי איך שאתה מגיב לאימונים.</p>
+        <p>תקשורת ישירה עם המאמן, דוחות Strava, וגרפים שמראים בדיוק איפה אתה עומד. הכל במקום אחד.</p>
+        <div class="coach-facts">
+          <div>
+            <p class="coach-fact-k">הישגים</p>
+            <p class="coach-fact-v">אלוף ישראל פעמיים · נבחרת ישראל</p>
+          </div>
+          <div>
+            <p class="coach-fact-k">רמה</p>
+            <p class="coach-fact-v">NCAA Division I</p>
+          </div>
+          <div>
+            <p class="coach-fact-k">התמחות</p>
+            <p class="coach-fact-v">ריצת מרחק · מכשולים</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP FEATURES -->
+  <section class="section wrap" id="app">
+    <div class="section-head reveal">
+      <div>
+        <p class="tag" style="margin-bottom:12px;">האפליקציה</p>
+        <h2 class="section-title">כל האימון, במקום אחד</h2>
+      </div>
+      <p class="section-desc">ארבעה מסכים שמלווים אותך כל שבוע.</p>
+    </div>
+
+    <div class="features reveal">
+      <div class="feature-card">
+        <p class="feature-num">01</p>
+        <h3>בית</h3>
+        <p>האימון של היום, ההתקדמות השבועית, ועדכון אישי מהמאמן מיד כשנכנסים.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">02</p>
+        <h3>לוח</h3>
+        <p>מסע העונה שלך משלב בסיס ועד יום המירוץ, עם כל שלב ותאריך מסומן.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">03</p>
+        <h3>סטטס</h3>
+        <p>קילומטרים שבועיים, רמת מאמץ, וקצב ממוצע. גרפים שמראים את המגמה האמיתית.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">04</p>
+        <h3>צ׳אט עם המאמן</h3>
+        <p>שאלה על אימון, כאב, או שינוי בתוכנית. תשובה ישירה מהמאמן שלך.</p>
+      </div>
+    </div>
+
+    <div class="screens reveal">
+      <div class="screen">
+        <img src="race-1.jpg" alt="תוכנית אימון שבועית">
+        <div class="screen-cap">תוכנית האימון</div>
+      </div>
+      <div class="screen">
+        <img src="yoni-train.jpeg" alt="מעקב התקדמות שבועי">
+        <div class="screen-cap">מעקב שבועי</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY -->
+  <section class="section apply" id="apply">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin-bottom:48px;">
+        <div>
+          <p class="tag" style="margin-bottom:12px;">הצטרפות</p>
+          <h2 class="section-title">בקשה להצטרפות</h2>
+        </div>
+      </div>
+
+      <div class="apply-grid reveal">
+        <div class="apply-copy">
+          <h2>מקומות האימון האישי מוגבלים בכוונה.</h2>
+          <p>Team Haim אינה פלטפורמה פתוחה. כל רץ נבדק אישית כדי לשמור על יחס אמיתי בין מאמן למתאמן. מלאו את הטופס ותקבלו תשובה ישירה.</p>
+          <div class="apply-steps">
+            <div class="apply-step">
+              <span class="apply-step-n">01</span>
+              <span>שלחו בקשה עם המרחק והרמה הנוכחית שלכם.</span>
+            </div>
+            <div class="apply-step">
+              <span class="apply-step-n">02</span>
+              <span>המאמן חיים בודק אישית, בדרך כלל תוך 24 שעות.</span>
+            </div>
+            <div class="apply-step">
+              <span class="apply-step-n">03</span>
+              <span>אם זו התאמה, תקבלו הזמנה להוריד את אפליקציית Team Haim ולפתוח פרופיל.</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="joinForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="name">שם מלא</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="phone">טלפון</label>
+              <input type="tel" id="phone" name="phone" style="direction:ltr;text-align:right;">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">אימייל</label>
+            <input type="email" id="email" name="email" required style="direction:ltr;text-align:right;">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="event">מרחק עיקרי</label>
+              <select id="event" name="event" required>
+                <option value="" disabled selected>בחרו מרחק</option>
+                <option>ריצת אמצע (800מ / 1500מ)</option>
+                <option>ריצה למרחקים (3000מ / 5000מ / 10000מ)</option>
+                <option>מכשולים (3000מ מ"כ)</option>
+                <option>קרוס קאנטרי</option>
+                <option>חצי מרתון / מרתון</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="level">רמה נוכחית</label>
+              <select id="level" name="level" required>
+                <option value="" disabled selected>בחרו רמה</option>
+                <option>תיכון</option>
+                <option>אקדמאית / קולג׳</option>
+                <option>פתוחה / בוגרים</option>
+                <option>מאסטרס</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="goals">המטרות שלך לעונה הזו</label>
+            <textarea id="goals" name="goals" placeholder="לאיזה מירוץ או יעד אתם מתאמנים כרגע?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">שליחת בקשה</button>
+          <p class="form-note">הכפתור פותח את אפליקציית המייל שלכם עם הבקשה מוכנה למאמן חיים. שום דבר לא נשלח אוטומטית.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="footer-grid">
+    <span class="brand">Team Haim</span>
+    <div class="footer-links">
+      <a href="#apply">בקשה להצטרפות</a>
+      <a href="https://wa.me/972558814177" target="_blank" rel="noopener">וואטסאפ</a>
+      <a href="mailto:info.teamhaim@gmail.com" style="direction:ltr;">info.teamhaim@gmail.com</a>
+    </div>
+  </div>
+  <p class="footer-meta">© 2026 Team Haim. אימון ריצה אישי.</p>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Form → mailto
+  document.getElementById('joinForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(this));
+    const body = `שם: ${d.name||''}
+טלפון: ${d.phone||''}
+מרחק: ${d.event||''}
+רמה: ${d.level||''}
+מטרות: ${d.goals||''}`;
+    window.location.href = 'mailto:info.teamhaim@gmail.com?subject=בקשה להצטרפות Team Haim&body=' + encodeURIComponent(body);
+  });
+</script>
+
+</body>
+</html>
