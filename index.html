@@ -133,18 +133,18 @@
   /* ── COACH ── */
   .coach-grid {
     display:grid;
-    grid-template-columns:0.85fr 1.15fr;
-    gap:56px; align-items:center;
+    grid-template-columns:260px 1fr;
+    gap:56px; align-items:flex-start;
   }
   .coach-photo {
-    border-radius:22px; overflow:hidden;
+    border-radius:18px; overflow:hidden;
     background:var(--cream-2);
-    aspect-ratio:4/5;
-    box-shadow:0 24px 56px -24px rgba(19,31,53,.32);
+    aspect-ratio:3/4;
+    box-shadow:0 20px 48px -20px rgba(19,31,53,.30);
   }
   .coach-photo img {
     width:100%; height:100%;
-    object-fit:cover; object-position:center 10%;
+    object-fit:cover; object-position:center top;
   }
   .coach-copy p {
     font-size:16px; color:#3C4353;
@@ -227,9 +227,9 @@
   }
   .showcase-phone img {
     width:100%; display:block;
-    aspect-ratio:9/18.5;
+    aspect-ratio:9/17;
     object-fit:cover;
-    object-position:center 10%;
+    object-position:center bottom;
   }
 
   /* ── APPLY ── */
@@ -311,19 +311,58 @@
 
   /* ── RESPONSIVE ── */
   @media(max-width:900px) {
-    .hero-grid, .coach-grid, .apply-grid { grid-template-columns:1fr; }
-    .phone { max-width:220px; }
-    .features { grid-template-columns:repeat(2,1fr); }
-    .showcase-item { grid-template-columns:1fr; gap:36px; padding:56px 0; }
-    .showcase-item:first-child { padding-top:0; }
-    .showcase-phone { max-width:240px; margin:0 auto; }
+    .wrap { padding:0 20px; }
+    .section { padding:64px 0; }
+    .hero { padding:108px 0 60px; }
     .nav-links { display:none; }
+    .section-head { flex-direction:column; gap:14px; margin-bottom:36px; }
+    .section-desc { max-width:100%; }
+
+    /* Hero */
+    .hero-grid { grid-template-columns:1fr; gap:40px; }
+    .hero-left { text-align:center; }
+    .hero h1 { max-width:100%; }
+    .hero-sub { max-width:100%; margin:0 auto; margin-top:16px; }
+    .hero-actions { justify-content:center; }
+    .phone { max-width:210px; margin:0 auto; }
+
+    /* Coach */
+    .coach-grid { grid-template-columns:1fr; gap:28px; }
+    .coach-photo { max-width:200px; margin:0 auto; }
+    .coach-copy p { max-width:100%; }
+
+    /* Features */
+    .features { grid-template-columns:repeat(2,1fr); gap:14px; }
+
+    /* Showcase */
+    .showcase-item { grid-template-columns:1fr; gap:28px; padding:52px 0; }
+    .showcase-item:first-child { padding-top:0; }
+    .showcase-phone { max-width:230px; margin:0 auto; order:-1; }
+    .showcase-body { max-width:100%; }
+
+    /* Apply */
+    .apply-grid { grid-template-columns:1fr; gap:40px; }
+    .apply-copy h2 { font-size:clamp(20px,4vw,28px); }
   }
   @media(max-width:540px) {
-    .features { grid-template-columns:1fr; }
-    .showcase-item { padding:44px 0; }
+    .wrap { padding:0 16px; }
+    .section { padding:50px 0; }
+    .hero { padding:96px 0 50px; }
+    .nav { padding:12px 16px; }
+    .nav-cta { font-size:12.5px; padding:9px 16px; }
+    .hero h1 { font-size:clamp(28px,8vw,36px); }
+    .hero-sub { font-size:15px; }
+    .btn-primary { width:100%; text-align:center; }
+    .features { grid-template-columns:1fr; gap:12px; }
+    .feature-card { padding:20px 16px 22px; }
+    .showcase-item { padding:40px 0; gap:24px; }
+    .showcase-phone { max-width:200px; }
+    .showcase-title { font-size:clamp(20px,5vw,26px); }
+    .showcase-body { font-size:15px; }
     .field-row { grid-template-columns:1fr; }
+    form { padding:24px 18px; }
     .footer-grid { flex-direction:column; align-items:flex-start; }
+    .footer-links { flex-wrap:wrap; gap:14px; }
   }
 
 </style>
@@ -358,7 +397,7 @@
       </div>
       <div class="reveal in">
         <div class="phone">
-          <img src="app-home.png" alt="אפליקציית Team Haim" style="aspect-ratio:9/19.5;object-fit:cover;object-position:center 10%;">
+          <img src="app-dashboard.jpg" alt="אפליקציית Team Haim" style="aspect-ratio:9/17;object-fit:cover;object-position:center bottom;">
         </div>
       </div>
     </div>
@@ -376,7 +415,7 @@
 
     <div class="coach-grid reveal">
       <div class="coach-photo">
-        <img src="yoni-last.jpeg" alt="יוני חיים, מאמן ריצה">
+        <img src="yoni-coach.jpg" alt="יוני חיים, מאמן ריצה">
       </div>
       <div class="coach-copy">
         <p>Team Haim נבנתה סביב רעיון אחד: רצים מתקדמים הכי מהר עם מאמן שבאמת מכיר אותם, את המרחק שלהם, את ההיסטוריה שלהם, ואת השבוע שעומד מולם.</p>
@@ -442,7 +481,7 @@
           <p class="showcase-body">פותחים את האפליקציה ורואים את האימון של היום, ההתקדמות השבועית, ועדכון ישיר מהמאמן. לא צריך לחשוב, לא צריך לחפש. יוצאים לרוץ. ככה בונים הרגל. ככה מתמידים.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-home.png" alt="מסך הבית של Team Haim">
+          <img src="app-dashboard.jpg" alt="מסך הבית של Team Haim">
         </div>
       </div>
 
