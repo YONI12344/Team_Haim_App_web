@@ -193,20 +193,20 @@
   /* ── SCREENS ── */
   .screens {
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:26px;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
     margin-top:56px;
   }
   .screen {
     background:var(--navy);
     border-radius:22px;
-    padding:12px;
+    padding:11px;
     box-shadow:0 24px 48px -24px rgba(19,31,53,.35);
   }
   .screen img {
     border-radius:14px;
     width:100%; display:block;
-    aspect-ratio:9/16; object-fit:cover; object-position:center 20%;
+    aspect-ratio:9/19.5; object-fit:cover; object-position:center top;
   }
   .screen-cap {
     color:var(--gold-2);
@@ -298,12 +298,12 @@
     .hero-grid, .coach-grid, .apply-grid { grid-template-columns:1fr; }
     .phone { max-width:220px; }
     .features { grid-template-columns:repeat(2,1fr); }
-    .screens { grid-template-columns:1fr 1fr; }
+    .screens { grid-template-columns:repeat(3,1fr); }
     .nav-links { display:none; }
   }
   @media(max-width:540px) {
     .features { grid-template-columns:1fr; }
-    .screens { grid-template-columns:1fr; }
+    .screens { grid-template-columns:1fr; gap:16px; }
     .field-row { grid-template-columns:1fr; }
     .footer-grid { flex-direction:column; align-items:flex-start; }
   }
@@ -340,7 +340,7 @@
       </div>
       <div class="reveal in">
         <div class="phone">
-          <img src="yoni-main.jpg" alt="יוני חיים מאמן ריצה Team Haim">
+          <img src="app-screen-2.png" alt="אפליקציית Team Haim" style="aspect-ratio:9/19.5;object-fit:cover;object-position:center top;">
         </div>
       </div>
     </div>
@@ -417,12 +417,16 @@
 
     <div class="screens reveal">
       <div class="screen">
-        <img src="race-1.jpg" alt="תוכנית אימון שבועית">
-        <div class="screen-cap">תוכנית האימון</div>
+        <img src="app-screen-3.png" alt="מסך הבית של אפליקציית Team Haim">
+        <div class="screen-cap">הבית</div>
       </div>
       <div class="screen">
-        <img src="yoni-train.jpeg" alt="מעקב התקדמות שבועי">
-        <div class="screen-cap">מעקב שבועי</div>
+        <img src="app-screen-2.png" alt="לוח השבוע באפליקציית Team Haim">
+        <div class="screen-cap">לוח השבוע</div>
+      </div>
+      <div class="screen">
+        <img src="app-screen-1.png" alt="פרטי אימון באפליקציית Team Haim">
+        <div class="screen-cap">פרטי האימון</div>
       </div>
     </div>
   </section>
