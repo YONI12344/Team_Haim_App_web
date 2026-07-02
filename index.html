@@ -504,7 +504,7 @@
             <textarea id="goals" name="goals" placeholder="לאיזה מירוץ או יעד אתם מתאמנים כרגע?"></textarea>
           </div>
           <button type="submit" class="submit-btn">שליחת בקשה</button>
-          <p class="form-note">הכפתור פותח את אפליקציית המייל שלכם עם הבקשה מוכנה למאמן חיים. שום דבר לא נשלח אוטומטית.</p>
+          <p class="form-note">הכפתור יפתח וואטסאפ עם הבקשה מוכנה ישירות למאמן חיים.</p>
         </form>
       </div>
     </div>
@@ -531,16 +531,18 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Form → mailto
+  // Form → WhatsApp
   document.getElementById('joinForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(this));
-    const body = `שם: ${d.name||''}
+    const msg = `בקשה להצטרפות Team Haim 🏃
+שם: ${d.name||''}
 טלפון: ${d.phone||''}
+אימייל: ${d.email||''}
 מרחק: ${d.event||''}
 רמה: ${d.level||''}
 מטרות: ${d.goals||''}`;
-    window.location.href = 'mailto:info.teamhaim@gmail.com?subject=בקשה להצטרפות Team Haim&body=' + encodeURIComponent(body);
+    window.open('https://wa.me/972558814177?text=' + encodeURIComponent(msg), '_blank');
   });
 </script>
 
