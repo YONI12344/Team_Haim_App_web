@@ -190,30 +190,46 @@
   }
   .feature-card p { font-size:13.5px; color:var(--muted); line-height:1.6; }
 
-  /* ── SCREENS ── */
-  .screens {
+  /* ── SHOWCASE (one-by-one screens) ── */
+  .showcase { margin-top:72px; }
+  .showcase-item {
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-    margin-top:56px;
+    grid-template-columns:1fr 270px;
+    gap:64px;
+    align-items:center;
+    padding:72px 0;
+    border-top:1px solid var(--line);
   }
-  .screen {
-    background:var(--navy);
-    border-radius:22px;
-    padding:11px;
-    box-shadow:0 24px 48px -24px rgba(19,31,53,.35);
+  .showcase-item:first-child { border-top:none; padding-top:8px; }
+  .showcase-label {
+    font-size:11.5px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em;
+    color:var(--gold); margin-bottom:18px;
+    display:block;
   }
-  .screen img {
-    border-radius:14px;
+  .showcase-title {
+    font-family:var(--display);
+    font-size:clamp(22px,2.8vw,34px);
+    font-weight:700;
+    margin-bottom:18px;
+    line-height:1.2;
+  }
+  .showcase-body {
+    font-size:16px; color:#4B5162;
+    line-height:1.8; max-width:440px;
+  }
+  .showcase-phone {
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 30px 64px -24px rgba(19,31,53,.38);
+    background:var(--navy-2);
+    flex-shrink:0;
+  }
+  .showcase-phone img {
     width:100%; display:block;
-    aspect-ratio:9/19.5; object-fit:cover; object-position:center top;
-  }
-  .screen-cap {
-    color:var(--gold-2);
-    font-size:13px; font-weight:600;
-    text-align:center;
-    padding:12px 0 4px;
-    letter-spacing:.04em;
+    aspect-ratio:9/18.5;
+    object-fit:cover;
+    object-position:center 10%;
   }
 
   /* ── APPLY ── */
@@ -298,12 +314,14 @@
     .hero-grid, .coach-grid, .apply-grid { grid-template-columns:1fr; }
     .phone { max-width:220px; }
     .features { grid-template-columns:repeat(2,1fr); }
-    .screens { grid-template-columns:repeat(3,1fr); }
+    .showcase-item { grid-template-columns:1fr; gap:36px; padding:56px 0; }
+    .showcase-item:first-child { padding-top:0; }
+    .showcase-phone { max-width:240px; margin:0 auto; }
     .nav-links { display:none; }
   }
   @media(max-width:540px) {
     .features { grid-template-columns:1fr; }
-    .screens { grid-template-columns:1fr; gap:16px; }
+    .showcase-item { padding:44px 0; }
     .field-row { grid-template-columns:1fr; }
     .footer-grid { flex-direction:column; align-items:flex-start; }
   }
@@ -340,7 +358,7 @@
       </div>
       <div class="reveal in">
         <div class="phone">
-          <img src="app-screen-2.png" alt="אפליקציית Team Haim" style="aspect-ratio:9/19.5;object-fit:cover;object-position:center top;">
+          <img src="app-home.png" alt="אפליקציית Team Haim" style="aspect-ratio:9/19.5;object-fit:cover;object-position:center 10%;">
         </div>
       </div>
     </div>
@@ -389,7 +407,7 @@
         <p class="tag" style="margin-bottom:12px;">האפליקציה</p>
         <h2 class="section-title">כל האימון, במקום אחד</h2>
       </div>
-      <p class="section-desc">ארבעה מסכים שמלווים אותך כל שבוע.</p>
+      <p class="section-desc">ארבעה מסכים שעושים את ההבדל בין מי שמתמיד למי שמוותר.</p>
     </div>
 
     <div class="features reveal">
@@ -415,19 +433,52 @@
       </div>
     </div>
 
-    <div class="screens reveal">
-      <div class="screen">
-        <img src="app-screen-3.png" alt="מסך הבית של אפליקציית Team Haim">
-        <div class="screen-cap">הבית</div>
+    <div class="showcase">
+
+      <div class="showcase-item reveal">
+        <div class="showcase-copy">
+          <span class="showcase-label">01 — הבית</span>
+          <h3 class="showcase-title">כל בוקר מתחיל כאן</h3>
+          <p class="showcase-body">פותחים את האפליקציה ורואים את האימון של היום, ההתקדמות השבועית, ועדכון ישיר מהמאמן. לא צריך לחשוב, לא צריך לחפש. יוצאים לרוץ. ככה בונים הרגל. ככה מתמידים.</p>
+        </div>
+        <div class="showcase-phone">
+          <img src="app-home.png" alt="מסך הבית של Team Haim">
+        </div>
       </div>
-      <div class="screen">
-        <img src="app-screen-2.png" alt="לוח השבוע באפליקציית Team Haim">
-        <div class="screen-cap">לוח השבוע</div>
+
+      <div class="showcase-item reveal">
+        <div class="showcase-copy">
+          <span class="showcase-label">02 — הנתונים שלך</span>
+          <h3 class="showcase-title">כשרואים את ההתקדמות, ממשיכים</h3>
+          <p class="showcase-body">קצב, קילומטרים, עומס מאמץ לאורך שבועות. הגרפים לא משקרים. כל אימון שסיימת מופיע שם. זה הדלק לאימון הבא. זה מה שעושה ספורטאים אמיתיים.</p>
+        </div>
+        <div class="showcase-phone">
+          <img src="app-stats.png" alt="מסך הסטטיסטיקות של Team Haim">
+        </div>
       </div>
-      <div class="screen">
-        <img src="app-screen-1.png" alt="פרטי אימון באפליקציית Team Haim">
-        <div class="screen-cap">פרטי האימון</div>
+
+      <div class="showcase-item reveal">
+        <div class="showcase-copy">
+          <span class="showcase-label">03 — מסע העונה</span>
+          <h3 class="showcase-title">יודעים לאן הולכים</h3>
+          <p class="showcase-body">כל שלב בעונה מסומן: בסיס, בנייה, שיא, יום המירוץ. כשרואים את התמונה הגדולה, קל יותר להתמיד גם ביום שבו לא מתחשק. כל שלב קיים מסיבה. כל אימון קיים כדי שיום המירוץ יצליח.</p>
+        </div>
+        <div class="showcase-phone">
+          <img src="app-season.png" alt="מסע העונה של Team Haim">
+        </div>
       </div>
+
+      <div class="showcase-item reveal">
+        <div class="showcase-copy">
+          <span class="showcase-label">04 — פרטי האימון</span>
+          <h3 class="showcase-title">בדיוק מה לעשות, בדיוק איך</h3>
+          <p class="showcase-body">לא "לרוץ 8 קילומטר". שם האימון, כמות החזרות, הקצב, הוראות ספציפיות, והערות אישיות מהמאמן. כשיש תוכנית ברורה, אין תירוצים.</p>
+        </div>
+        <div class="showcase-phone">
+          <img src="app-season2.png" alt="פרטי אימון באפליקציית Team Haim">
+        </div>
+      </div>
+
     </div>
   </section>
 
