@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team Haim | אימון ריצה אישי</title>
-<meta name="description" content="Team Haim: פלטפורמת אימון ריצה אישי. תוכנית שבועית, מעקב נתונים, וקשר ישיר עם המאמן.">
+<title>Team Haim | Elite Personal Running Coaching</title>
+<meta name="description" content="Team Haim: Elite 1-on-1 running coaching from an Israeli national champion and NCAA Division I athlete. A weekly plan, real-time tracking, and direct access to your coach — all in one app.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
 
   :root {
@@ -21,9 +21,8 @@
     --muted: #848994;
     --line: rgba(19,31,53,0.10);
     --line-strong: rgba(19,31,53,0.18);
-    --display: 'Frank Ruhl Libre', serif;
+    --display: 'Playfair Display', serif;
     --body: 'Heebo', sans-serif;
-    --wordmark: 'Playfair Display', serif;
     --max: 1140px;
   }
 
@@ -38,7 +37,7 @@
   .tag {
     font-size:12px;
     font-weight:600;
-    letter-spacing:.08em;
+    letter-spacing:.10em;
     text-transform:uppercase;
     color:var(--gold);
   }
@@ -47,8 +46,8 @@
 
   /* ── HEADER ── */
   header {
-    position:fixed; top:0; inset-inline:0; z-index:50;
-    background:rgba(246,243,234,.88);
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(246,243,234,.92);
     backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
     border-bottom:1px solid var(--line);
   }
@@ -58,7 +57,7 @@
     display:flex; align-items:center; justify-content:space-between;
   }
   .brand {
-    font-family:var(--wordmark);
+    font-family:var(--display);
     font-style:italic;
     font-size:20px;
     color:var(--navy);
@@ -84,7 +83,6 @@
     grid-template-columns:1fr 1fr;
     gap:60px; align-items:center;
   }
-  .hero-left { }
   .hero-label { margin-bottom:18px; }
   .hero h1 {
     font-size:clamp(36px,4.8vw,58px);
@@ -94,9 +92,9 @@
   .hero h1 em { font-style:normal; color:var(--gold); }
   .hero-sub {
     margin-top:20px;
-    font-size:16px; line-height:1.7;
+    font-size:16.5px; line-height:1.75;
     color:#4B5162;
-    max-width:440px;
+    max-width:460px;
   }
   .hero-actions {
     margin-top:32px;
@@ -119,7 +117,32 @@
     overflow:hidden; background:var(--navy);
     box-shadow:0 40px 70px -30px rgba(19,31,53,.42);
   }
-  .phone img { width:100%; display:block; aspect-ratio:9/16; object-fit:cover; object-position:center 15%; }
+  .phone img { width:100%; display:block; aspect-ratio:9/17; object-fit:cover; object-position:center bottom; }
+
+  /* ── CREDENTIAL BAR ── */
+  .cred-bar {
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .cred-list {
+    display:flex; justify-content:center;
+    align-items:center; gap:0; flex-wrap:wrap;
+  }
+  .cred-item {
+    padding:8px 36px;
+    font-size:13px; font-weight:600;
+    color:var(--navy); letter-spacing:.03em;
+    border-right:1px solid var(--line);
+    text-align:center;
+  }
+  .cred-item:last-child { border-right:none; }
+  .cred-item span {
+    display:block;
+    font-size:10.5px; font-weight:600;
+    text-transform:uppercase; letter-spacing:.08em;
+    color:var(--gold); margin-bottom:3px;
+  }
 
   /* ── SECTIONS ── */
   .section { border-top:1px solid var(--line); padding:88px 0; }
@@ -133,7 +156,7 @@
   /* ── COACH ── */
   .coach-grid {
     display:grid;
-    grid-template-columns:260px 1fr;
+    grid-template-columns:280px 1fr;
     gap:56px; align-items:flex-start;
   }
   .coach-photo {
@@ -148,7 +171,7 @@
   }
   .coach-copy p {
     font-size:16px; color:#3C4353;
-    margin-bottom:18px; max-width:540px; line-height:1.7;
+    margin-bottom:18px; max-width:560px; line-height:1.75;
   }
   .coach-copy p:first-child { font-size:18px; color:var(--ink); font-weight:500; }
   .coach-facts {
@@ -157,7 +180,7 @@
     padding-top:24px; border-top:1px solid var(--line);
   }
   .coach-fact-k { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:4px; }
-  .coach-fact-v { font-family:var(--display); font-size:1rem; font-weight:500; }
+  .coach-fact-v { font-family:var(--display); font-size:1rem; font-weight:700; }
 
   /* ── FEATURES ── */
   .features {
@@ -190,7 +213,7 @@
   }
   .feature-card p { font-size:13.5px; color:var(--muted); line-height:1.6; }
 
-  /* ── SHOWCASE (one-by-one screens) ── */
+  /* ── SHOWCASE ── */
   .showcase { margin-top:72px; }
   .showcase-item {
     display:grid;
@@ -216,7 +239,7 @@
   }
   .showcase-body {
     font-size:16px; color:#4B5162;
-    line-height:1.8; max-width:440px;
+    line-height:1.85; max-width:440px;
   }
   .showcase-phone {
     border-radius:30px;
@@ -243,20 +266,21 @@
   }
   .apply-copy p {
     color:#B9BECB; font-size:16px;
-    max-width:400px; margin-bottom:26px; line-height:1.7;
+    max-width:420px; margin-bottom:26px; line-height:1.75;
   }
   .apply-copy h2 {
     font-size:clamp(22px,2.8vw,32px);
     color:#fff; margin-bottom:16px;
   }
   .apply-steps { display:flex; flex-direction:column; gap:14px; margin-top:32px; }
-  .apply-step { display:flex; gap:14px; font-size:14px; color:#D6DAE3; align-items:flex-start; }
+  .apply-step { display:flex; gap:14px; font-size:14.5px; color:#D6DAE3; align-items:flex-start; line-height:1.6; }
   .apply-step-n {
     font-family:var(--display);
     color:var(--gold-2);
     font-weight:700;
     min-width:22px;
     flex-shrink:0;
+    padding-top:2px;
   }
 
   form {
@@ -266,7 +290,7 @@
     display:flex; flex-direction:column; gap:18px;
   }
   .field { display:flex; flex-direction:column; gap:6px; }
-  .field label { font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; }
+  .field label { font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; }
   .field input, .field select, .field textarea {
     background:var(--cream); border:1px solid transparent;
     border-radius:10px; color:var(--ink);
@@ -287,9 +311,10 @@
     border:none; border-radius:999px;
     padding:15px 28px; cursor:pointer;
     transition:background .2s, transform .2s;
+    width:100%;
   }
   .submit-btn:hover { background:var(--gold-2); transform:translateY(-2px); }
-  .form-note { font-size:12px; color:var(--muted); line-height:1.5; }
+  .form-note { font-size:12px; color:var(--muted); line-height:1.5; text-align:center; }
 
   /* ── FOOTER ── */
   footer { border-top:1px solid var(--line); padding:48px 0 32px; }
@@ -305,7 +330,7 @@
   .footer-links a:hover { color:var(--ink); }
   .footer-meta { margin-top:18px; font-size:12px; color:#A9ADB6; }
 
-  /* ── REVEAL ANIMATION ── */
+  /* ── REVEAL ── */
   .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
   .reveal.in { opacity:1; transform:none; }
 
@@ -318,29 +343,26 @@
     .section-head { flex-direction:column; gap:14px; margin-bottom:36px; }
     .section-desc { max-width:100%; }
 
-    /* Hero */
     .hero-grid { grid-template-columns:1fr; gap:40px; }
-    .hero-left { text-align:center; }
     .hero h1 { max-width:100%; }
-    .hero-sub { max-width:100%; margin:0 auto; margin-top:16px; }
+    .hero-sub { max-width:100%; margin-top:16px; }
     .hero-actions { justify-content:center; }
     .phone { max-width:210px; margin:0 auto; }
 
-    /* Coach */
+    .cred-list { gap:0; }
+    .cred-item { padding:8px 18px; font-size:12px; }
+
     .coach-grid { grid-template-columns:1fr; gap:28px; }
     .coach-photo { max-width:200px; margin:0 auto; }
     .coach-copy p { max-width:100%; }
 
-    /* Features */
     .features { grid-template-columns:repeat(2,1fr); gap:14px; }
 
-    /* Showcase */
     .showcase-item { grid-template-columns:1fr; gap:28px; padding:52px 0; }
     .showcase-item:first-child { padding-top:0; }
     .showcase-phone { max-width:230px; margin:0 auto; order:-1; }
     .showcase-body { max-width:100%; }
 
-    /* Apply */
     .apply-grid { grid-template-columns:1fr; gap:40px; }
     .apply-copy h2 { font-size:clamp(20px,4vw,28px); }
   }
@@ -353,6 +375,7 @@
     .hero h1 { font-size:clamp(28px,8vw,36px); }
     .hero-sub { font-size:15px; }
     .btn-primary { width:100%; text-align:center; }
+    .cred-item { padding:8px 14px; font-size:11px; }
     .features { grid-template-columns:1fr; gap:12px; }
     .feature-card { padding:20px 16px 22px; }
     .showcase-item { padding:40px 0; gap:24px; }
@@ -373,11 +396,11 @@
   <div class="nav">
     <a href="#top" class="brand">Team Haim</a>
     <nav class="nav-links">
-      <a href="#coach">המאמן</a>
-      <a href="#app">האפליקציה</a>
-      <a href="#apply">הצטרפות</a>
+      <a href="#coach">The Coach</a>
+      <a href="#app">The App</a>
+      <a href="#apply">Apply</a>
     </nav>
-    <a href="#apply" class="nav-cta">בקשה להצטרפות</a>
+    <a href="#apply" class="nav-cta">Apply to Join</a>
   </div>
 </header>
 
@@ -387,88 +410,116 @@
   <section class="hero wrap">
     <div class="hero-grid">
       <div class="hero-left">
-        <p class="tag hero-label">אימון ריצה אישי</p>
-        <h1>המאמן שלך.<br>התוכנית שלך.<br><em>סטנדרט אחד.</em></h1>
-        <p class="hero-sub">Team Haim היא פלטפורמת אימון ריצה אישי. תוכנית שבועית בנויה סביב המרחק שלך ושלבי העונה, מעקב נתונים בזמן אמת, וקשר ישיר עם המאמן, הכל דרך אפליקציה אחת.</p>
+        <p class="tag hero-label">Elite Personal Running Coaching</p>
+        <h1>Your Coach.<br>Your Plan.<br><em>One Standard.</em></h1>
+        <p class="hero-sub">Train with an Israeli national champion and NCAA Division I athlete. Team Haim delivers personal 1-on-1 running coaching — a weekly plan built around your event and season, real-time tracking, and direct access to your coach. All through one app.</p>
         <div class="hero-actions">
-          <a href="#apply" class="btn-primary">בקשה להצטרפות</a>
-          <span class="hero-note">כל בקשה נבדקת אישית על ידי המאמן חיים</span>
+          <a href="#apply" class="btn-primary">Apply to Join</a>
+          <span class="hero-note">Every application reviewed personally by Coach Yoni</span>
         </div>
       </div>
       <div class="reveal in">
         <div class="phone">
-          <img src="app-dashboard.jpg" alt="אפליקציית Team Haim" style="aspect-ratio:9/17;object-fit:cover;object-position:center bottom;">
+          <img src="app-dashboard.jpg" alt="Team Haim App" style="aspect-ratio:9/17;object-fit:cover;object-position:center bottom;">
         </div>
       </div>
     </div>
   </section>
+
+  <!-- CREDENTIAL BAR -->
+  <div class="cred-bar">
+    <div class="wrap">
+      <div class="cred-list">
+        <div class="cred-item">
+          <span>Achievement</span>
+          2× Israeli National Champion
+        </div>
+        <div class="cred-item">
+          <span>Level</span>
+          NCAA Division I
+        </div>
+        <div class="cred-item">
+          <span>Coaching</span>
+          Personal 1-on-1
+        </div>
+        <div class="cred-item">
+          <span>Available</span>
+          US &amp; International
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- COACH -->
   <section class="section wrap" id="coach">
     <div class="section-head reveal">
       <div>
-        <p class="tag" style="margin-bottom:12px;">המאמן</p>
-        <h2 class="section-title">יהונתן חיים</h2>
+        <p class="tag" style="margin-bottom:12px;">Your Coach</p>
+        <h2 class="section-title">Yehonatan (Yoni) Haim</h2>
       </div>
-      <p class="section-desc">כל רץ ב-Team Haim מתאמן מול מאמן אחד, תוכנית אחת, סטנדרט אחד. לא רשימת מתאמנים אנונימית.</p>
+      <p class="section-desc">Every athlete in Team Haim trains with one coach, one plan, one standard. Not an anonymous list.</p>
     </div>
 
     <div class="coach-grid reveal">
       <div class="coach-photo">
-        <img src="yoni-coach.jpg" alt="יוני חיים, מאמן ריצה">
+        <img src="yoni-coach.jpg" alt="Yoni Haim, running coach">
       </div>
       <div class="coach-copy">
-        <p>Team Haim נבנתה סביב רעיון אחד: רצים מתקדמים הכי מהר עם מאמן שבאמת מכיר אותם, את המרחק שלהם, את ההיסטוריה שלהם, ואת השבוע שעומד מולם.</p>
-        <p>כל מצטרף עובר שיחת היכרות אישית לפני שנבנית ולו תוכנית אחת. משם, התוכנית נבנית לפי שלבי העונה שלך: בסיס, בנייה, שיא, עם עדכונים שוטפים לפי איך שאתה מגיב לאימונים.</p>
-        <p>תקשורת ישירה עם המאמן, דוחות Strava, וגרפים שמראים בדיוק איפה אתה עומד. הכל במקום אחד.</p>
+        <p>I've been in the running world my entire life. Two-time Israeli national champion. Competed as an NCAA Division I distance runner in the United States. I've trained alongside and learned from some of the best coaches and athletes in the world — and everything I learned, I'm here to give to you.</p>
+        <p>Team Haim was built on one principle: runners improve fastest when they have a coach who truly knows them — their event, their history, and the exact week they're standing in. Every athlete goes through a personal intake call before a single workout is written. From there, your plan is built around the phases of your season: base, build, peak — updated continuously based on how you respond.</p>
+        <p>Direct communication with your coach, Strava integration, and data that shows exactly where you stand. Everything in one place, so you can focus on running.</p>
         <div class="coach-facts">
           <div>
-            <p class="coach-fact-k">הישגים</p>
-            <p class="coach-fact-v">אלוף ישראל פעמיים · נבחרת ישראל</p>
+            <p class="coach-fact-k">Achievements</p>
+            <p class="coach-fact-v">2× Israeli National Champion · National Team</p>
           </div>
           <div>
-            <p class="coach-fact-k">רמה</p>
+            <p class="coach-fact-k">College Level</p>
             <p class="coach-fact-v">NCAA Division I</p>
           </div>
           <div>
-            <p class="coach-fact-k">התמחות</p>
-            <p class="coach-fact-v">ריצת מרחק · מכשולים</p>
+            <p class="coach-fact-k">Specialty</p>
+            <p class="coach-fact-v">Distance · Steeplechase</p>
+          </div>
+          <div>
+            <p class="coach-fact-k">Coaching</p>
+            <p class="coach-fact-v">US &amp; International</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- APP FEATURES -->
+  <!-- APP -->
   <section class="section wrap" id="app">
     <div class="section-head reveal">
       <div>
-        <p class="tag" style="margin-bottom:12px;">האפליקציה</p>
-        <h2 class="section-title">כל האימון, במקום אחד</h2>
+        <p class="tag" style="margin-bottom:12px;">The App</p>
+        <h2 class="section-title">Your entire training, one place</h2>
       </div>
-      <p class="section-desc">ארבעה מסכים שעושים את ההבדל בין מי שמתמיד למי שמוותר.</p>
+      <p class="section-desc">Four screens that separate athletes who break through from those who plateau.</p>
     </div>
 
     <div class="features reveal">
       <div class="feature-card">
         <p class="feature-num">01</p>
-        <h3>בית</h3>
-        <p>האימון של היום, ההתקדמות השבועית, ועדכון אישי מהמאמן מיד כשנכנסים.</p>
+        <h3>Home</h3>
+        <p>Today's workout, weekly progress, and a direct note from your coach — every time you open the app.</p>
       </div>
       <div class="feature-card">
         <p class="feature-num">02</p>
-        <h3>לוח</h3>
-        <p>מסע העונה שלך משלב בסיס ועד יום המירוץ, עם כל שלב ותאריך מסומן.</p>
+        <h3>Plan</h3>
+        <p>Your full season from base training through race day, with every phase and milestone mapped out.</p>
       </div>
       <div class="feature-card">
         <p class="feature-num">03</p>
-        <h3>סטטס</h3>
-        <p>קילומטרים שבועיים, רמת מאמץ, וקצב ממוצע. גרפים שמראים את המגמה האמיתית.</p>
+        <h3>Stats</h3>
+        <p>Weekly kilometers, effort scores, average pace. Charts that reveal the real trend behind your training.</p>
       </div>
       <div class="feature-card">
         <p class="feature-num">04</p>
-        <h3>צ׳אט עם המאמן</h3>
-        <p>שאלה על אימון, כאב, או שינוי בתוכנית. תשובה ישירה מהמאמן שלך.</p>
+        <h3>Coach Chat</h3>
+        <p>A question about a set, a pain, a schedule change. A direct reply from your coach — not a bot.</p>
       </div>
     </div>
 
@@ -476,45 +527,45 @@
 
       <div class="showcase-item reveal">
         <div class="showcase-copy">
-          <span class="showcase-label">01 — הבית</span>
-          <h3 class="showcase-title">כל בוקר מתחיל כאן</h3>
-          <p class="showcase-body">פותחים את האפליקציה ורואים את האימון של היום, ההתקדמות השבועית, ועדכון ישיר מהמאמן. לא צריך לחשוב, לא צריך לחפש. יוצאים לרוץ. ככה בונים הרגל. ככה מתמידים.</p>
+          <span class="showcase-label">01 — Dashboard</span>
+          <h3 class="showcase-title">Every morning starts here</h3>
+          <p class="showcase-body">Open the app and you see today's workout, your week's progress, and a note from your coach. No guessing. No digging through emails or spreadsheets. You just run. That's how consistency stops being a choice and becomes automatic.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-dashboard.jpg" alt="מסך הבית של Team Haim">
+          <img src="app-dashboard.jpg" alt="Team Haim dashboard screen">
         </div>
       </div>
 
       <div class="showcase-item reveal">
         <div class="showcase-copy">
-          <span class="showcase-label">02 — הנתונים שלך</span>
-          <h3 class="showcase-title">כשרואים את ההתקדמות, ממשיכים</h3>
-          <p class="showcase-body">קצב, קילומטרים, עומס מאמץ לאורך שבועות. הגרפים לא משקרים. כל אימון שסיימת מופיע שם. זה הדלק לאימון הבא. זה מה שעושה ספורטאים אמיתיים.</p>
+          <span class="showcase-label">02 — Season Journey</span>
+          <h3 class="showcase-title">Always know where you're headed</h3>
+          <p class="showcase-body">Base. Build. Peak. Race day. Every phase mapped with dates and weekly targets. When you can see the full picture, you trust each day's workout — even the hard ones, and especially the easy ones. Every phase exists for a reason.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-stats.png" alt="מסך הסטטיסטיקות של Team Haim">
+          <img src="app-season.png" alt="Team Haim season journey screen">
         </div>
       </div>
 
       <div class="showcase-item reveal">
         <div class="showcase-copy">
-          <span class="showcase-label">03 — מסע העונה</span>
-          <h3 class="showcase-title">יודעים לאן הולכים</h3>
-          <p class="showcase-body">כל שלב בעונה מסומן: בסיס, בנייה, שיא, יום המירוץ. כשרואים את התמונה הגדולה, קל יותר להתמיד גם ביום שבו לא מתחשק. כל שלב קיים מסיבה. כל אימון קיים כדי שיום המירוץ יצליח.</p>
+          <span class="showcase-label">03 — Training Data</span>
+          <h3 class="showcase-title">When you see it, you keep going</h3>
+          <p class="showcase-body">Pace trends, weekly kilometers, effort load across months. Every workout you've finished lives here. Seeing your progress in real numbers is what keeps you moving on the days you don't feel like it. The data is honest. Use it.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-season.png" alt="מסע העונה של Team Haim">
+          <img src="app-stats.png" alt="Team Haim statistics screen">
         </div>
       </div>
 
       <div class="showcase-item reveal">
         <div class="showcase-copy">
-          <span class="showcase-label">04 — פרטי האימון</span>
-          <h3 class="showcase-title">בדיוק מה לעשות, בדיוק איך</h3>
-          <p class="showcase-body">לא "לרוץ 8 קילומטר". שם האימון, כמות החזרות, הקצב, הוראות ספציפיות, והערות אישיות מהמאמן. כשיש תוכנית ברורה, אין תירוצים.</p>
+          <span class="showcase-label">04 — Workout Detail</span>
+          <h3 class="showcase-title">Exactly what to do. Exactly how.</h3>
+          <p class="showcase-body">Not just "run 8km." Every workout includes sets, reps, target pace, specific instructions, and personal notes from Coach Yoni. A clear plan eliminates doubt — and doubt is where training falls apart.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-season2.png" alt="פרטי אימון באפליקציית Team Haim">
+          <img src="app-plan.png" alt="Team Haim workout plan screen">
         </div>
       </div>
 
@@ -526,27 +577,27 @@
     <div class="wrap">
       <div class="section-head reveal" style="margin-bottom:48px;">
         <div>
-          <p class="tag" style="margin-bottom:12px;">הצטרפות</p>
-          <h2 class="section-title">בקשה להצטרפות</h2>
+          <p class="tag" style="margin-bottom:12px;">Apply</p>
+          <h2 class="section-title">Apply for Coaching</h2>
         </div>
       </div>
 
       <div class="apply-grid reveal">
         <div class="apply-copy">
-          <h2>מקומות האימון האישי מוגבלים בכוונה.</h2>
-          <p>Team Haim אינה פלטפורמה פתוחה. כל רץ נבדק אישית כדי לשמור על יחס אמיתי בין מאמן למתאמן. מלאו את הטופס ותקבלו תשובה ישירה.</p>
+          <h2>Coaching spots are intentionally limited.</h2>
+          <p>Team Haim is not an open sign-up platform. Every athlete is reviewed personally to keep the coach-to-athlete relationship real. Fill out the form and you'll hear back directly from Coach Yoni.</p>
           <div class="apply-steps">
             <div class="apply-step">
               <span class="apply-step-n">01</span>
-              <span>שלחו בקשה עם המרחק והרמה הנוכחית שלכם.</span>
+              <span>Submit your application with your event, level, and goals.</span>
             </div>
             <div class="apply-step">
               <span class="apply-step-n">02</span>
-              <span>המאמן חיים בודק אישית, בדרך כלל תוך 24 שעות.</span>
+              <span>Coach Yoni reviews it personally — typically within 24 hours.</span>
             </div>
             <div class="apply-step">
               <span class="apply-step-n">03</span>
-              <span>אם זו התאמה, תקבלו הזמנה להוריד את אפליקציית Team Haim ולפתוח פרופיל.</span>
+              <span>If it's a fit, you'll receive an invite to download the Team Haim app and set up your profile.</span>
             </div>
           </div>
         </div>
@@ -554,47 +605,49 @@
         <form id="joinForm" novalidate>
           <div class="field-row">
             <div class="field">
-              <label for="name">שם מלא</label>
-              <input type="text" id="name" name="name" required>
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
             </div>
             <div class="field">
-              <label for="phone">טלפון</label>
-              <input type="tel" id="phone" name="phone" style="direction:ltr;text-align:right;">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 ...">
             </div>
           </div>
           <div class="field">
-            <label for="email">אימייל</label>
-            <input type="email" id="email" name="email" required style="direction:ltr;text-align:right;">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required>
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="event">מרחק עיקרי</label>
+              <label for="event">Primary Event</label>
               <select id="event" name="event" required>
-                <option value="" disabled selected>בחרו מרחק</option>
-                <option>ריצת אמצע (800מ / 1500מ)</option>
-                <option>ריצה למרחקים (3000מ / 5000מ / 10000מ)</option>
-                <option>מכשולים (3000מ מ"כ)</option>
-                <option>קרוס קאנטרי</option>
-                <option>חצי מרתון / מרתון</option>
+                <option value="" disabled selected>Select event</option>
+                <option>Middle Distance (800m / 1500m)</option>
+                <option>Distance (3000m / 5000m / 10000m)</option>
+                <option>Steeplechase (3000m SC)</option>
+                <option>Cross Country</option>
+                <option>Half Marathon</option>
+                <option>Marathon</option>
               </select>
             </div>
             <div class="field">
-              <label for="level">רמה נוכחית</label>
+              <label for="level">Current Level</label>
               <select id="level" name="level" required>
-                <option value="" disabled selected>בחרו רמה</option>
-                <option>תיכון</option>
-                <option>אקדמאית / קולג׳</option>
-                <option>פתוחה / בוגרים</option>
-                <option>מאסטרס</option>
+                <option value="" disabled selected>Select level</option>
+                <option>High School</option>
+                <option>College (NCAA)</option>
+                <option>Open / Post-Collegiate</option>
+                <option>Masters</option>
+                <option>Recreational / Fitness</option>
               </select>
             </div>
           </div>
           <div class="field">
-            <label for="goals">המטרות שלך לעונה הזו</label>
-            <textarea id="goals" name="goals" placeholder="לאיזה מירוץ או יעד אתם מתאמנים כרגע?"></textarea>
+            <label for="goals">Your Goals This Season</label>
+            <textarea id="goals" name="goals" placeholder="What race or goal are you training for right now?"></textarea>
           </div>
-          <button type="submit" class="submit-btn">שליחת בקשה</button>
-          <p class="form-note">הכפתור יפתח וואטסאפ עם הבקשה מוכנה ישירות למאמן חיים.</p>
+          <button type="submit" class="submit-btn">Send Application</button>
+          <p class="form-note">This will open WhatsApp with your application sent directly to Coach Yoni.</p>
         </form>
       </div>
     </div>
@@ -606,32 +659,30 @@
   <div class="footer-grid">
     <span class="brand">Team Haim</span>
     <div class="footer-links">
-      <a href="#apply">בקשה להצטרפות</a>
-      <a href="https://wa.me/972558814177" target="_blank" rel="noopener">וואטסאפ</a>
-      <a href="mailto:info.teamhaim@gmail.com" style="direction:ltr;">info.teamhaim@gmail.com</a>
+      <a href="#apply">Apply to Join</a>
+      <a href="https://wa.me/972558814177" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:info.teamhaim@gmail.com">info.teamhaim@gmail.com</a>
     </div>
   </div>
-  <p class="footer-meta">© 2026 Team Haim. אימון ריצה אישי.</p>
+  <p class="footer-meta">© 2026 Team Haim. Elite personal running coaching.</p>
 </footer>
 
 <script>
-  // Reveal on scroll
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Form → WhatsApp
   document.getElementById('joinForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(this));
-    const msg = `בקשה להצטרפות Team Haim 🏃
-שם: ${d.name||''}
-טלפון: ${d.phone||''}
-אימייל: ${d.email||''}
-מרחק: ${d.event||''}
-רמה: ${d.level||''}
-מטרות: ${d.goals||''}`;
+    const msg = `Team Haim Coaching Application
+Name: ${d.name||''}
+Phone: ${d.phone||''}
+Email: ${d.email||''}
+Event: ${d.event||''}
+Level: ${d.level||''}
+Goals: ${d.goals||''}`;
     window.open('https://wa.me/972558814177?text=' + encodeURIComponent(msg), '_blank');
   });
 </script>
