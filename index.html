@@ -7,419 +7,315 @@
 <meta name="description" content="Team Haim: Elite 1-on-1 running coaching from an Israeli national champion and NCAA Division I athlete. A weekly plan, real-time tracking, and direct access to your coach — all in one app.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 
   :root {
     --cream: #F6F3EA;
     --cream-2: #EFEBDF;
     --navy: #131F35;
-    --navy-2: #1C2C4A;
     --gold: #C8A250;
     --gold-2: #E4C878;
     --ink: #14213B;
-    --muted: #848994;
+    --muted: #7A8090;
     --line: rgba(19,31,53,0.10);
-    --line-strong: rgba(19,31,53,0.18);
-    --display: 'Playfair Display', serif;
-    --body: 'Heebo', sans-serif;
-    --max: 1140px;
+    --font: 'Heebo', sans-serif;
+    --max: 1100px;
   }
 
   *, ::before, ::after { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { background:var(--cream); color:var(--ink); font-family:var(--body); line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
-  a { color:inherit; text-decoration:none; }
-  img { max-width:100%; display:block; }
-
-  .wrap { max-width:var(--max); margin:0 auto; padding:0 28px; }
-
-  .tag {
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:.10em;
-    text-transform:uppercase;
-    color:var(--gold);
+  html { scroll-behavior:smooth; overflow-x:hidden; }
+  body {
+    background:var(--cream); color:var(--ink);
+    font-family:var(--font); line-height:1.6;
+    overflow-x:hidden; -webkit-font-smoothing:antialiased;
   }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; height:auto; }
 
-  h1, h2, h3 { font-family:var(--display); line-height:1.15; }
+  .wrap { max-width:var(--max); margin:0 auto; padding:0 24px; }
 
   /* ── HEADER ── */
   header {
     position:fixed; top:0; left:0; right:0; z-index:50;
-    background:rgba(246,243,234,.92);
+    background:rgba(246,243,234,.94);
     backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
     border-bottom:1px solid var(--line);
   }
   .nav {
     max-width:var(--max); margin:0 auto;
-    padding:15px 28px;
+    padding:14px 24px;
     display:flex; align-items:center; justify-content:space-between;
+    gap:12px;
   }
-  .brand {
-    font-family:var(--display);
-    font-style:italic;
-    font-size:20px;
-    color:var(--navy);
-  }
-  .nav-links {
-    display:flex; gap:28px;
-    font-size:14px; font-weight:500; color:var(--ink);
-  }
-  .nav-links a { opacity:.65; transition:opacity .2s; }
+  .brand { font-size:18px; font-weight:800; color:var(--navy); letter-spacing:-.01em; }
+  .nav-links { display:flex; gap:24px; font-size:14px; font-weight:500; color:var(--ink); }
+  .nav-links a { opacity:.60; transition:opacity .2s; }
   .nav-links a:hover { opacity:1; }
   .nav-cta {
-    font-size:13.5px; font-weight:700;
+    font-size:13px; font-weight:700; white-space:nowrap;
     background:var(--navy); color:var(--gold-2);
-    padding:10px 20px; border-radius:999px;
-    transition:background .2s, transform .2s;
+    padding:9px 18px; border-radius:999px;
+    transition:background .2s;
   }
-  .nav-cta:hover { background:var(--ink); transform:translateY(-1px); }
+  .nav-cta:hover { background:var(--ink); }
 
   /* ── HERO ── */
-  .hero { padding:130px 0 90px; }
+  .hero { padding:110px 0 72px; }
   .hero-grid {
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:60px; align-items:center;
+    gap:56px; align-items:center;
   }
-  .hero-label { margin-bottom:18px; }
+  .tag {
+    font-size:11px; font-weight:700; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--gold);
+    display:block; margin-bottom:16px;
+  }
   .hero h1 {
-    font-size:clamp(36px,4.8vw,58px);
-    font-weight:700;
-    max-width:520px;
+    font-size:clamp(34px,4.5vw,56px);
+    font-weight:800; line-height:1.1;
+    letter-spacing:-.02em;
   }
   .hero h1 em { font-style:normal; color:var(--gold); }
   .hero-sub {
-    margin-top:20px;
-    font-size:16.5px; line-height:1.75;
-    color:#4B5162;
-    max-width:460px;
+    margin-top:18px; font-size:16px; line-height:1.75;
+    color:#4B5162; max-width:440px;
   }
-  .hero-actions {
-    margin-top:32px;
-    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
-  }
+  .hero-actions { margin-top:28px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
   .btn-primary {
     font-size:15px; font-weight:700;
     background:var(--gold); color:var(--navy);
-    padding:15px 28px; border-radius:999px;
-    border:1px solid var(--gold);
-    display:inline-block;
-    transition:background .2s, transform .2s;
+    padding:14px 26px; border-radius:999px;
+    display:inline-block; transition:background .2s, transform .15s;
+    white-space:nowrap;
   }
   .btn-primary:hover { background:var(--gold-2); transform:translateY(-2px); }
   .hero-note { font-size:13px; color:var(--muted); }
 
   .phone {
-    position:relative; max-width:280px; margin:0 auto;
-    border-radius:36px; border:8px solid var(--navy);
+    width:min(260px, 72vw); margin:0 auto;
+    border-radius:34px; border:7px solid var(--navy);
     overflow:hidden; background:var(--navy);
-    box-shadow:0 40px 70px -30px rgba(19,31,53,.42);
+    box-shadow:0 36px 64px -28px rgba(19,31,53,.45);
   }
-  .phone img { width:100%; display:block; aspect-ratio:9/17; object-fit:cover; object-position:center bottom; }
+  .phone img {
+    width:100%; display:block;
+    aspect-ratio:9/17; object-fit:cover; object-position:center bottom;
+  }
 
-  /* ── CREDENTIAL BAR ── */
-  .cred-bar {
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:22px 0;
-  }
+  /* ── CRED BAR ── */
+  .cred-bar { border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
   .cred-list {
-    display:flex; justify-content:center;
-    align-items:center; gap:0; flex-wrap:wrap;
+    display:flex; align-items:stretch;
+    overflow:hidden;
   }
   .cred-item {
-    padding:8px 36px;
-    font-size:13px; font-weight:600;
-    color:var(--navy); letter-spacing:.03em;
+    flex:1; padding:18px 20px; text-align:center;
     border-right:1px solid var(--line);
-    text-align:center;
+    font-size:13px; font-weight:600; color:var(--navy);
   }
   .cred-item:last-child { border-right:none; }
   .cred-item span {
-    display:block;
-    font-size:10.5px; font-weight:600;
-    text-transform:uppercase; letter-spacing:.08em;
-    color:var(--gold); margin-bottom:3px;
+    display:block; font-size:10px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.09em;
+    color:var(--gold); margin-bottom:5px;
   }
 
   /* ── SECTIONS ── */
-  .section { border-top:1px solid var(--line); padding:88px 0; }
-  .section-head {
-    display:flex; justify-content:space-between; align-items:flex-end;
-    gap:36px; margin-bottom:52px; flex-wrap:wrap;
-  }
-  .section-title { font-size:clamp(28px,3.8vw,44px); font-weight:700; }
-  .section-desc { max-width:360px; color:var(--muted); font-size:15px; line-height:1.65; }
+  .section { border-top:1px solid var(--line); padding:80px 0; }
+  .section-head { display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:48px; flex-wrap:wrap; }
+  .section-title { font-size:clamp(26px,3.5vw,42px); font-weight:800; letter-spacing:-.02em; }
+  .section-desc { max-width:340px; color:var(--muted); font-size:15px; line-height:1.65; }
 
   /* ── COACH ── */
-  .coach-grid {
-    display:grid;
-    grid-template-columns:280px 1fr;
-    gap:56px; align-items:flex-start;
-  }
+  .coach-grid { display:grid; grid-template-columns:260px 1fr; gap:52px; align-items:flex-start; }
   .coach-photo {
-    border-radius:18px; overflow:hidden;
-    background:var(--cream-2);
-    aspect-ratio:3/4;
-    box-shadow:0 20px 48px -20px rgba(19,31,53,.30);
+    border-radius:16px; overflow:hidden; background:var(--cream-2);
+    aspect-ratio:3/4; box-shadow:0 18px 44px -18px rgba(19,31,53,.28);
   }
-  .coach-photo img {
-    width:100%; height:100%;
-    object-fit:cover; object-position:center top;
-  }
-  .coach-copy p {
-    font-size:16px; color:#3C4353;
-    margin-bottom:18px; max-width:560px; line-height:1.75;
-  }
-  .coach-copy p:first-child { font-size:18px; color:var(--ink); font-weight:500; }
+  .coach-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+  .coach-copy p { font-size:15.5px; color:#3C4353; margin-bottom:16px; max-width:540px; line-height:1.75; }
+  .coach-copy p:first-child { font-size:17px; color:var(--ink); font-weight:600; }
   .coach-facts {
-    margin-top:28px;
-    display:flex; flex-wrap:wrap; gap:24px 40px;
+    margin-top:24px; display:flex; flex-wrap:wrap; gap:20px 36px;
     padding-top:24px; border-top:1px solid var(--line);
   }
-  .coach-fact-k { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:4px; }
-  .coach-fact-v { font-family:var(--display); font-size:1rem; font-weight:700; }
+  .coach-fact-k { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); margin-bottom:4px; }
+  .coach-fact-v { font-size:14px; font-weight:700; color:var(--ink); }
 
   /* ── FEATURES ── */
-  .features {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-  }
+  .features { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
   .feature-card {
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:24px 20px 28px;
-    transition:transform .25s, box-shadow .25s;
+    background:#fff; border:1px solid var(--line); border-radius:16px;
+    padding:22px 18px 26px; transition:transform .2s, box-shadow .2s;
   }
-  .feature-card:hover {
-    transform:translateY(-4px);
-    box-shadow:0 18px 36px -20px rgba(19,31,53,.22);
-  }
-  .feature-num {
-    font-family:var(--display);
-    font-size:13px; font-weight:700;
-    color:var(--gold);
-    margin-bottom:18px;
-    letter-spacing:.06em;
-  }
-  .feature-card h3 {
-    font-size:18px; font-weight:700;
-    font-family:var(--body);
-    margin-bottom:8px;
-  }
-  .feature-card p { font-size:13.5px; color:var(--muted); line-height:1.6; }
+  .feature-card:hover { transform:translateY(-3px); box-shadow:0 16px 32px -18px rgba(19,31,53,.20); }
+  .feature-num { font-size:11px; font-weight:800; color:var(--gold); letter-spacing:.08em; margin-bottom:14px; }
+  .feature-card h3 { font-size:16px; font-weight:700; margin-bottom:7px; }
+  .feature-card p { font-size:13px; color:var(--muted); line-height:1.6; }
 
   /* ── SHOWCASE ── */
-  .showcase { margin-top:72px; }
+  .showcase { margin-top:64px; }
   .showcase-item {
-    display:grid;
-    grid-template-columns:1fr 270px;
-    gap:64px;
-    align-items:center;
-    padding:72px 0;
-    border-top:1px solid var(--line);
+    display:grid; grid-template-columns:1fr 250px;
+    gap:60px; align-items:center;
+    padding:64px 0; border-top:1px solid var(--line);
   }
-  .showcase-item:first-child { border-top:none; padding-top:8px; }
+  .showcase-item:first-child { border-top:none; padding-top:0; }
   .showcase-label {
-    font-size:11.5px; font-weight:700;
-    text-transform:uppercase; letter-spacing:.1em;
-    color:var(--gold); margin-bottom:18px;
-    display:block;
+    display:block; font-size:10.5px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.12em;
+    color:var(--gold); margin-bottom:14px;
   }
-  .showcase-title {
-    font-family:var(--display);
-    font-size:clamp(22px,2.8vw,34px);
-    font-weight:700;
-    margin-bottom:18px;
-    line-height:1.2;
-  }
-  .showcase-body {
-    font-size:16px; color:#4B5162;
-    line-height:1.85; max-width:440px;
-  }
+  .showcase-title { font-size:clamp(20px,2.6vw,30px); font-weight:800; letter-spacing:-.02em; margin-bottom:16px; line-height:1.15; }
+  .showcase-body { font-size:15.5px; color:#4B5162; line-height:1.8; max-width:420px; }
   .showcase-phone {
-    border-radius:30px;
-    overflow:hidden;
-    box-shadow:0 30px 64px -24px rgba(19,31,53,.38);
-    background:var(--navy-2);
-    flex-shrink:0;
+    width:100%; border-radius:26px; overflow:hidden;
+    box-shadow:0 28px 56px -22px rgba(19,31,53,.38); background:var(--navy);
   }
   .showcase-phone img {
     width:100%; display:block;
-    aspect-ratio:9/17;
-    object-fit:cover;
-    object-position:center bottom;
+    aspect-ratio:9/17; object-fit:cover; object-position:center bottom;
   }
 
   /* ── APPLY ── */
   .apply { background:var(--navy); color:#fff; }
-  .apply .tag { color:var(--gold-2); }
   .apply .section-title { color:#fff; }
-  .apply-grid {
-    display:grid;
-    grid-template-columns:0.9fr 1.1fr;
-    gap:60px;
-  }
-  .apply-copy p {
-    color:#B9BECB; font-size:16px;
-    max-width:420px; margin-bottom:26px; line-height:1.75;
-  }
-  .apply-copy h2 {
-    font-size:clamp(22px,2.8vw,32px);
-    color:#fff; margin-bottom:16px;
-  }
-  .apply-steps { display:flex; flex-direction:column; gap:14px; margin-top:32px; }
-  .apply-step { display:flex; gap:14px; font-size:14.5px; color:#D6DAE3; align-items:flex-start; line-height:1.6; }
-  .apply-step-n {
-    font-family:var(--display);
-    color:var(--gold-2);
-    font-weight:700;
-    min-width:22px;
-    flex-shrink:0;
-    padding-top:2px;
-  }
+  .apply .tag { color:var(--gold-2); }
+  .apply-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:56px; }
+  .apply-copy h2 { font-size:clamp(20px,2.6vw,30px); font-weight:800; color:#fff; margin-bottom:14px; letter-spacing:-.02em; }
+  .apply-copy p { color:#B9BECB; font-size:15px; max-width:400px; margin-bottom:22px; line-height:1.75; }
+  .apply-steps { display:flex; flex-direction:column; gap:12px; margin-top:28px; }
+  .apply-step { display:flex; gap:12px; font-size:14px; color:#CDD1DA; align-items:flex-start; line-height:1.65; }
+  .apply-step-n { color:var(--gold-2); font-weight:800; min-width:20px; flex-shrink:0; padding-top:1px; }
 
-  form {
-    background:#fff;
-    border-radius:22px;
-    padding:32px;
-    display:flex; flex-direction:column; gap:18px;
-  }
-  .field { display:flex; flex-direction:column; gap:6px; }
-  .field label { font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; }
+  form { background:#fff; border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:16px; }
+  .field { display:flex; flex-direction:column; gap:5px; }
+  .field label { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
   .field input, .field select, .field textarea {
-    background:var(--cream); border:1px solid transparent;
-    border-radius:10px; color:var(--ink);
-    font-family:var(--body); font-size:15px;
-    padding:12px 14px;
-    transition:border-color .2s;
+    background:var(--cream); border:1.5px solid transparent;
+    border-radius:10px; color:var(--ink); font-family:var(--font);
+    font-size:15px; padding:11px 13px; transition:border-color .2s; width:100%;
   }
   .field select { appearance:none; -webkit-appearance:none; }
-  .field textarea { resize:vertical; min-height:80px; }
-  .field input:focus, .field select:focus, .field textarea:focus {
-    outline:none; border-color:var(--gold);
-  }
-  .field-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .field textarea { resize:vertical; min-height:76px; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline:none; border-color:var(--gold); }
+  .field-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
   .submit-btn {
-    margin-top:4px;
     font-size:15px; font-weight:700;
     background:var(--gold); color:var(--navy);
-    border:none; border-radius:999px;
-    padding:15px 28px; cursor:pointer;
-    transition:background .2s, transform .2s;
-    width:100%;
+    border:none; border-radius:999px; padding:14px 24px;
+    cursor:pointer; width:100%; transition:background .2s, transform .15s;
   }
   .submit-btn:hover { background:var(--gold-2); transform:translateY(-2px); }
   .form-note { font-size:12px; color:var(--muted); line-height:1.5; text-align:center; }
 
   /* ── FOOTER ── */
-  footer { border-top:1px solid var(--line); padding:48px 0 32px; }
-  .footer-grid {
-    display:flex; justify-content:space-between; align-items:center;
-    gap:20px; flex-wrap:wrap;
-  }
-  .footer-links {
-    display:flex; gap:24px;
-    font-size:14px; font-weight:500; color:var(--muted);
-  }
-  .footer-links a { transition:color .2s; }
+  footer { border-top:1px solid var(--line); padding:44px 0 28px; }
+  .footer-grid { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  .footer-links { display:flex; gap:20px; font-size:13.5px; font-weight:500; color:var(--muted); flex-wrap:wrap; }
   .footer-links a:hover { color:var(--ink); }
-  .footer-meta { margin-top:18px; font-size:12px; color:#A9ADB6; }
+  .footer-meta { margin-top:16px; font-size:11px; color:#A9ADB6; }
 
   /* ── REVEAL ── */
-  .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
+  .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
   .reveal.in { opacity:1; transform:none; }
 
-  /* ── RESPONSIVE ── */
-  @media(max-width:900px) {
-    .wrap { padding:0 20px; }
+  /* ═══════════════════════════════
+     MOBILE — tablet (≤820px)
+  ═══════════════════════════════ */
+  @media(max-width:820px) {
+    .wrap { padding:0 18px; }
     .section { padding:56px 0; }
-    .hero { padding:100px 0 52px; }
+    .hero { padding:96px 0 52px; }
     .nav-links { display:none; }
-    .section-head { flex-direction:column; gap:12px; margin-bottom:32px; }
-    .section-desc { max-width:100%; font-size:14px; }
 
-    .hero-grid { grid-template-columns:1fr; gap:36px; }
-    .hero-left { text-align:center; }
-    .hero h1 { max-width:100%; font-size:clamp(30px,6vw,44px); }
-    .hero-sub { max-width:100%; margin:14px auto 0; font-size:15.5px; }
-    .hero-actions { justify-content:center; flex-direction:column; align-items:center; gap:12px; }
-    .phone { max-width:200px; margin:0 auto; }
+    .hero-grid { grid-template-columns:1fr; gap:32px; text-align:center; }
+    .hero h1 { font-size:clamp(28px,7vw,38px); }
+    .hero-sub { max-width:100%; margin:14px auto 0; font-size:15px; }
+    .hero-actions { justify-content:center; flex-direction:column; align-items:center; gap:10px; }
+    .btn-primary { width:100%; max-width:320px; text-align:center; }
+    .hero-note { font-size:12px; }
 
-    /* Credential bar: 2×2 grid on tablet */
-    .cred-list { display:grid; grid-template-columns:1fr 1fr; gap:0; }
-    .cred-item { padding:12px 16px; font-size:12px; border-right:none; border-bottom:1px solid var(--line); }
-    .cred-item:nth-child(odd) { border-right:1px solid var(--line); }
+    /* Credential bar: 2×2 */
+    .cred-list { flex-wrap:wrap; }
+    .cred-item { flex:0 0 50%; border-bottom:1px solid var(--line); font-size:12px; padding:14px 16px; }
+    .cred-item:nth-child(1), .cred-item:nth-child(2) { border-bottom:1px solid var(--line); }
     .cred-item:nth-child(3), .cred-item:nth-child(4) { border-bottom:none; }
+    .cred-item:nth-child(odd) { border-right:1px solid var(--line); }
+    .cred-item:nth-child(even) { border-right:none; }
+
+    .section-head { flex-direction:column; gap:10px; margin-bottom:32px; }
+    .section-desc { max-width:100%; font-size:14px; }
+    .section-title { font-size:clamp(22px,6vw,32px); }
 
     .coach-grid { grid-template-columns:1fr; gap:24px; }
-    .coach-photo { max-width:180px; margin:0 auto; }
-    .coach-copy p { max-width:100%; font-size:15px; }
+    .coach-photo { width:160px; margin:0 auto; }
+    .coach-copy p { font-size:14.5px; }
     .coach-copy p:first-child { font-size:16px; }
-    .coach-facts { gap:18px 28px; }
 
-    .features { grid-template-columns:repeat(2,1fr); gap:12px; }
+    .features { grid-template-columns:1fr 1fr; gap:12px; }
 
-    .section-title { font-size:clamp(24px,5vw,36px); }
-    .showcase { margin-top:48px; }
-    .showcase-item { grid-template-columns:1fr; gap:24px; padding:44px 0; }
+    .showcase { margin-top:44px; }
+    .showcase-item { grid-template-columns:1fr; gap:20px; padding:44px 0; align-items:start; }
     .showcase-item:first-child { padding-top:0; }
-    .showcase-phone { max-width:220px; margin:0 auto; order:-1; }
+    .showcase-phone { width:min(200px,58vw); margin:0 auto; order:-1; }
     .showcase-body { max-width:100%; font-size:15px; }
+    .showcase-title { font-size:clamp(18px,5.5vw,26px); }
 
-    .apply-grid { grid-template-columns:1fr; gap:36px; }
-    .apply-copy h2 { font-size:clamp(19px,4vw,26px); }
-    .apply-copy p { font-size:15px; }
+    .apply-grid { grid-template-columns:1fr; gap:32px; }
+    .apply-copy p { max-width:100%; }
   }
-  @media(max-width:540px) {
+
+  /* ═══════════════════════════════
+     MOBILE — phone (≤480px)
+  ═══════════════════════════════ */
+  @media(max-width:480px) {
     .wrap { padding:0 14px; }
     .section { padding:44px 0; }
-    .hero { padding:88px 0 44px; }
+    .hero { padding:84px 0 44px; }
     .nav { padding:11px 14px; }
     .nav-cta { font-size:12px; padding:8px 14px; }
+    .brand { font-size:16px; }
 
-    .hero h1 { font-size:clamp(26px,7.5vw,34px); }
-    .hero-sub { font-size:14.5px; line-height:1.65; }
-    .btn-primary { width:100%; text-align:center; font-size:14px; padding:13px 20px; }
-    .hero-note { font-size:12px; text-align:center; width:100%; }
+    .hero h1 { font-size:clamp(26px,8.5vw,34px); }
+    .hero-sub { font-size:14px; line-height:1.7; }
+    .btn-primary { font-size:14px; padding:13px 20px; }
 
-    /* Credential bar: compact single-column on small phone */
-    .cred-list { grid-template-columns:1fr 1fr; }
-    .cred-item { padding:10px 12px; font-size:11px; }
+    .cred-item { padding:12px 10px; font-size:11px; }
     .cred-item span { font-size:9px; }
 
-    .coach-photo { max-width:150px; }
-    .coach-copy p { font-size:14px; margin-bottom:14px; }
+    .section-title { font-size:clamp(20px,7vw,28px); }
+    .section-desc { font-size:13px; }
+
+    .coach-photo { width:140px; }
+    .coach-copy p { font-size:14px; margin-bottom:12px; }
     .coach-copy p:first-child { font-size:15px; }
-    .coach-fact-v { font-size:14px; }
+    .coach-fact-v { font-size:13px; }
+    .coach-facts { gap:14px 24px; }
 
     .features { grid-template-columns:1fr; gap:10px; }
-    .feature-card { padding:18px 14px 20px; }
-    .feature-card h3 { font-size:16px; }
-    .feature-card p { font-size:13px; }
+    .feature-card { padding:18px 14px 20px; border-radius:14px; }
+    .feature-card h3 { font-size:15px; }
+    .feature-card p { font-size:12.5px; }
 
-    .showcase { margin-top:36px; }
-    .showcase-item { padding:36px 0; gap:20px; }
-    .showcase-phone { max-width:190px; }
-    .showcase-label { font-size:10.5px; margin-bottom:12px; }
-    .showcase-title { font-size:clamp(19px,5.5vw,24px); margin-bottom:12px; }
+    .showcase { margin-top:28px; }
+    .showcase-item { padding:36px 0; gap:16px; }
+    .showcase-phone { width:min(180px,56vw); }
+    .showcase-label { font-size:10px; margin-bottom:10px; }
+    .showcase-title { font-size:clamp(17px,6vw,22px); margin-bottom:10px; }
     .showcase-body { font-size:14px; line-height:1.7; }
 
-    .apply-copy h2 { font-size:clamp(17px,5vw,22px); }
+    .apply-copy h2 { font-size:clamp(17px,6vw,22px); }
     .apply-copy p { font-size:14px; }
     .apply-step { font-size:13.5px; }
     .field-row { grid-template-columns:1fr; }
-    form { padding:20px 16px; gap:14px; }
-    .field label { font-size:11px; }
-    .field input, .field select, .field textarea { font-size:14px; padding:11px 12px; }
-    .submit-btn { font-size:14px; padding:13px 20px; }
+    form { padding:20px 14px; gap:13px; border-radius:16px; }
+    .field input, .field select, .field textarea { font-size:14px; padding:10px 12px; }
+    .submit-btn { font-size:14px; padding:13px 18px; }
 
-    .footer-grid { flex-direction:column; align-items:flex-start; gap:14px; }
-    .footer-links { flex-wrap:wrap; gap:12px; font-size:13px; }
+    .footer-links { gap:12px; font-size:13px; }
     .footer-meta { font-size:11px; }
   }
 
@@ -445,9 +341,9 @@
   <section class="hero wrap">
     <div class="hero-grid">
       <div class="hero-left">
-        <p class="tag hero-label">Elite Personal Running Coaching</p>
+        <span class="tag">Elite Personal Running Coaching</span>
         <h1>Your Coach.<br>Your Plan.<br><em>One Standard.</em></h1>
-        <p class="hero-sub">Train with an Israeli national champion and NCAA Division I athlete. Team Haim delivers personal 1-on-1 running coaching — a weekly plan built around your event and season, real-time tracking, and direct access to your coach. All through one app.</p>
+        <p class="hero-sub">Train with an Israeli national champion and NCAA Division I athlete. A weekly plan built for your event, real-time tracking, and direct access to your coach — all in one app.</p>
         <div class="hero-actions">
           <a href="#apply" class="btn-primary">Apply to Join</a>
           <span class="hero-note">Every application reviewed personally by Coach Yoni</span>
@@ -455,7 +351,7 @@
       </div>
       <div class="reveal in">
         <div class="phone">
-          <img src="app-dashboard.jpg" alt="Team Haim App" style="aspect-ratio:9/17;object-fit:cover;object-position:center bottom;">
+          <img src="sc-home.png" alt="Team Haim App">
         </div>
       </div>
     </div>
@@ -465,22 +361,10 @@
   <div class="cred-bar">
     <div class="wrap">
       <div class="cred-list">
-        <div class="cred-item">
-          <span>Achievement</span>
-          2× Israeli National Champion
-        </div>
-        <div class="cred-item">
-          <span>Level</span>
-          NCAA Division I
-        </div>
-        <div class="cred-item">
-          <span>Coaching</span>
-          Personal 1-on-1
-        </div>
-        <div class="cred-item">
-          <span>Available</span>
-          US &amp; International
-        </div>
+        <div class="cred-item"><span>Achievement</span>2× Israeli National Champion</div>
+        <div class="cred-item"><span>College</span>NCAA Division I</div>
+        <div class="cred-item"><span>Coaching</span>Personal 1-on-1</div>
+        <div class="cred-item"><span>Available</span>US &amp; International</div>
       </div>
     </div>
   </div>
@@ -489,10 +373,10 @@
   <section class="section wrap" id="coach">
     <div class="section-head reveal">
       <div>
-        <p class="tag" style="margin-bottom:12px;">Your Coach</p>
+        <span class="tag">Your Coach</span>
         <h2 class="section-title">Yehonatan (Yoni) Haim</h2>
       </div>
-      <p class="section-desc">Every athlete in Team Haim trains with one coach, one plan, one standard. Not an anonymous list.</p>
+      <p class="section-desc">Every athlete in Team Haim trains with one coach, one plan, one standard — not an anonymous list.</p>
     </div>
 
     <div class="coach-grid reveal">
@@ -500,16 +384,16 @@
         <img src="yoni-coach.jpg" alt="Yoni Haim, running coach">
       </div>
       <div class="coach-copy">
-        <p>I've been in the running world my entire life. Two-time Israeli national champion. Competed as an NCAA Division I distance runner in the United States. I've trained alongside and learned from some of the best coaches and athletes in the world — and everything I learned, I'm here to give to you.</p>
-        <p>Team Haim was built on one principle: runners improve fastest when they have a coach who truly knows them — their event, their history, and the exact week they're standing in. Every athlete goes through a personal intake call before a single workout is written. From there, your plan is built around the phases of your season: base, build, peak — updated continuously based on how you respond.</p>
-        <p>Direct communication with your coach, Strava integration, and data that shows exactly where you stand. Everything in one place, so you can focus on running.</p>
+        <p>I've been in the running world my entire life. Two-time Israeli national champion. Competed as an NCAA Division I distance runner in the United States. I've trained alongside the best coaches and athletes in the world — and everything I learned, I'm here to give to you.</p>
+        <p>Team Haim runs on one principle: runners improve fastest when a coach truly knows them — their event, their history, and the exact week they're in. Every athlete goes through a personal intake call before a single workout is written. Then your plan is built around your season phases: base, build, peak — updated based on how you respond.</p>
+        <p>Direct communication with your coach, Strava integration, and data that shows exactly where you stand. Everything in one place.</p>
         <div class="coach-facts">
           <div>
             <p class="coach-fact-k">Achievements</p>
             <p class="coach-fact-v">2× Israeli National Champion · National Team</p>
           </div>
           <div>
-            <p class="coach-fact-k">College Level</p>
+            <p class="coach-fact-k">College</p>
             <p class="coach-fact-v">NCAA Division I</p>
           </div>
           <div>
@@ -529,7 +413,7 @@
   <section class="section wrap" id="app">
     <div class="section-head reveal">
       <div>
-        <p class="tag" style="margin-bottom:12px;">The App</p>
+        <span class="tag">The App</span>
         <h2 class="section-title">Your entire training, one place</h2>
       </div>
       <p class="section-desc">Four screens that separate athletes who break through from those who plateau.</p>
@@ -539,17 +423,17 @@
       <div class="feature-card">
         <p class="feature-num">01</p>
         <h3>Home</h3>
-        <p>Today's workout, weekly progress, and a direct note from your coach — every time you open the app.</p>
+        <p>Today's workout, weekly progress, and a direct note from your coach every time you open the app.</p>
       </div>
       <div class="feature-card">
         <p class="feature-num">02</p>
         <h3>Plan</h3>
-        <p>Your full season from base training through race day, with every phase and milestone mapped out.</p>
+        <p>Your full season from base training through race day — every phase and milestone mapped out.</p>
       </div>
       <div class="feature-card">
         <p class="feature-num">03</p>
         <h3>Stats</h3>
-        <p>Weekly kilometers, effort scores, average pace. Charts that reveal the real trend behind your training.</p>
+        <p>Weekly kilometers, effort scores, average pace. Charts that reveal the real trend in your training.</p>
       </div>
       <div class="feature-card">
         <p class="feature-num">04</p>
@@ -564,10 +448,10 @@
         <div class="showcase-copy">
           <span class="showcase-label">01 — Dashboard</span>
           <h3 class="showcase-title">Every morning starts here</h3>
-          <p class="showcase-body">Open the app and you see today's workout, your week's progress, and a note from your coach. No guessing. No digging through emails or spreadsheets. You just run. That's how consistency stops being a choice and becomes automatic.</p>
+          <p class="showcase-body">Open the app and see today's workout, your week's progress, and a note from your coach. No guessing, no digging through emails. You just run. That's how consistency becomes automatic.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-dashboard.jpg" alt="Team Haim dashboard screen">
+          <img src="sc-home.png" alt="Team Haim home screen">
         </div>
       </div>
 
@@ -575,10 +459,10 @@
         <div class="showcase-copy">
           <span class="showcase-label">02 — Season Journey</span>
           <h3 class="showcase-title">Always know where you're headed</h3>
-          <p class="showcase-body">Base. Build. Peak. Race day. Every phase mapped with dates and weekly targets. When you can see the full picture, you trust each day's workout — even the hard ones, and especially the easy ones. Every phase exists for a reason.</p>
+          <p class="showcase-body">Base. Build. Peak. Race day. Every phase mapped with dates and weekly targets. When you see the full picture, you trust each day's workout — even the hard ones, and especially the easy ones.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-season.png" alt="Team Haim season journey screen">
+          <img src="sc-season.png" alt="Team Haim season journey screen">
         </div>
       </div>
 
@@ -586,10 +470,10 @@
         <div class="showcase-copy">
           <span class="showcase-label">03 — Training Data</span>
           <h3 class="showcase-title">When you see it, you keep going</h3>
-          <p class="showcase-body">Pace trends, weekly kilometers, effort load across months. Every workout you've finished lives here. Seeing your progress in real numbers is what keeps you moving on the days you don't feel like it. The data is honest. Use it.</p>
+          <p class="showcase-body">Pace trends, weekly kilometers, effort load across months. Every workout you've finished is tracked here. Seeing your progress in real numbers is what keeps you moving on the days you don't feel like it.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-stats.png" alt="Team Haim statistics screen">
+          <img src="sc-stats.png" alt="Team Haim statistics screen">
         </div>
       </div>
 
@@ -597,10 +481,10 @@
         <div class="showcase-copy">
           <span class="showcase-label">04 — Workout Detail</span>
           <h3 class="showcase-title">Exactly what to do. Exactly how.</h3>
-          <p class="showcase-body">Not just "run 8km." Every workout includes sets, reps, target pace, specific instructions, and personal notes from Coach Yoni. A clear plan eliminates doubt — and doubt is where training falls apart.</p>
+          <p class="showcase-body">Not just "run 8km." Every workout includes sets, reps, target pace, and personal notes from Coach Yoni. A clear plan eliminates doubt — and doubt is where training falls apart.</p>
         </div>
         <div class="showcase-phone">
-          <img src="app-plan.png" alt="Team Haim workout plan screen">
+          <img src="sc-plan.png" alt="Team Haim workout plan screen">
         </div>
       </div>
 
@@ -610,9 +494,9 @@
   <!-- APPLY -->
   <section class="section apply" id="apply">
     <div class="wrap">
-      <div class="section-head reveal" style="margin-bottom:48px;">
+      <div class="section-head reveal" style="margin-bottom:44px;">
         <div>
-          <p class="tag" style="margin-bottom:12px;">Apply</p>
+          <span class="tag">Apply</span>
           <h2 class="section-title">Apply for Coaching</h2>
         </div>
       </div>
@@ -620,7 +504,7 @@
       <div class="apply-grid reveal">
         <div class="apply-copy">
           <h2>Coaching spots are intentionally limited.</h2>
-          <p>Team Haim is not an open sign-up platform. Every athlete is reviewed personally to keep the coach-to-athlete relationship real. Fill out the form and you'll hear back directly from Coach Yoni.</p>
+          <p>Team Haim is not an open sign-up. Every athlete is reviewed personally to keep the coach-to-athlete relationship real. Fill out the form and you'll hear back directly from Coach Yoni.</p>
           <div class="apply-steps">
             <div class="apply-step">
               <span class="apply-step-n">01</span>
@@ -673,7 +557,7 @@
                 <option>College (NCAA)</option>
                 <option>Open / Post-Collegiate</option>
                 <option>Masters</option>
-                <option>Recreational / Fitness</option>
+                <option>Recreational</option>
               </select>
             </div>
           </div>
@@ -682,7 +566,7 @@
             <textarea id="goals" name="goals" placeholder="What race or goal are you training for right now?"></textarea>
           </div>
           <button type="submit" class="submit-btn">Send Application</button>
-          <p class="form-note">This will open WhatsApp with your application sent directly to Coach Yoni.</p>
+          <p class="form-note">Opens WhatsApp with your application sent directly to Coach Yoni.</p>
         </form>
       </div>
     </div>
@@ -705,7 +589,7 @@
 <script>
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.06 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   document.getElementById('joinForm').addEventListener('submit', function(e) {
