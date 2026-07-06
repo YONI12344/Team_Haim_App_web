@@ -6,10 +6,24 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
 <title>Team Haim | Elite Personal Running Coaching</title>
 <meta name="description" content="Train with an Israeli national champion and NCAA Division I athlete. Personal 1-on-1 running coaching through one app.">
+<script>
+  (function () {
+    var saved = localStorage.getItem('th-lang');
+    var lang = saved || (navigator.language && navigator.language.toLowerCase().indexOf('he') === 0 ? 'he' : 'en');
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+    document.documentElement.setAttribute('data-lang', lang);
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  [data-he] { display: none; }
+  html[data-lang="he"] [data-he] { display: inherit; }
+  html[data-lang="he"] [data-en] { display: none; }
+  html[data-lang="en"] [data-en] { display: inherit; }
+  html[dir="rtl"] .field-row { direction: rtl; }
 
   :root {
     --cream: #F6F3EA;
@@ -60,6 +74,15 @@
   }
   .nav-cta:hover { background:var(--ink); }
 
+  .lang-btn {
+    font-size:13px; font-weight:700; white-space:nowrap;
+    background:transparent; color:var(--navy);
+    border:1px solid var(--line); border-radius:999px;
+    padding:8px 16px; cursor:pointer; transition:border-color .2s, color .2s;
+    font-family:var(--font);
+  }
+  .lang-btn:hover { border-color:var(--gold); color:var(--gold); }
+
   /* ── HERO ── */
   /* section controls vertical padding; wrap (child div) controls horizontal */
   .hero { padding-top:110px; padding-bottom:72px; }
@@ -108,7 +131,7 @@
     font-size:13px; font-weight:600; color:var(--navy); line-height:1.4;
   }
   .cred-item:last-child { border-right:none; }
-  .cred-item span {
+  .cred-item .cred-label {
     display:block; font-size:10px; font-weight:700;
     text-transform:uppercase; letter-spacing:.09em;
     color:var(--gold); margin-bottom:5px;
@@ -273,7 +296,7 @@
     .hero-note { font-size:12px; }
 
     .cred-item { padding:11px 10px; font-size:11px; }
-    .cred-item span { font-size:9px; }
+    .cred-item .cred-label { font-size:9px; }
 
     .section-title { font-size:clamp(20px,7vw,28px); }
     .section-desc { font-size:13px; }
@@ -315,11 +338,14 @@
   <div class="nav">
     <a href="#top" class="brand">Team Haim</a>
     <nav class="nav-links">
-      <a href="#coach">The Coach</a>
-      <a href="#app">The App</a>
-      <a href="#apply">Apply</a>
+      <a href="#coach"><span data-en>The Coach</span><span data-he>המאמן</span></a>
+      <a href="#app"><span data-en>The App</span><span data-he>האפליקציה</span></a>
+      <a href="#apply"><span data-en>Apply</span><span data-he>הרשמה</span></a>
     </nav>
-    <a href="#apply" class="nav-cta">Apply to Join</a>
+    <button type="button" id="lang-btn" class="lang-btn" aria-label="Switch language / החלף שפה">
+      <span data-en>עברית</span><span data-he>English</span>
+    </button>
+    <a href="#apply" class="nav-cta"><span data-en>Apply to Join</span><span data-he>הצטרף עכשיו</span></a>
   </div>
 </header>
 
@@ -330,12 +356,18 @@
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-left">
-          <span class="tag">Elite Personal Running Coaching</span>
-          <h1>Your Coach.<br>Your Plan.<br><em>One Standard.</em></h1>
-          <p class="hero-sub">Train with an Israeli national champion and NCAA Division I athlete. One plan, one coach, direct access. All through one app.</p>
+          <span class="tag"><span data-en>Elite Personal Running Coaching</span><span data-he>ליווי אישי ברמה עילית לרצים</span></span>
+          <h1>
+            <span data-en>Your Coach.<br>Your Plan.<br><em>One Standard.</em></span>
+            <span data-he>המאמן שלך.<br>התוכנית שלך.<br><em>סטנדרט אחד.</em></span>
+          </h1>
+          <p class="hero-sub">
+            <span data-en>Train with an Israeli national champion and NCAA Division I athlete. One plan, one coach, direct access. All through one app.</span>
+            <span data-he>התאמן עם אלוף ישראל וספורטאי לשעבר ב-NCAA Division I. תוכנית אחת, מאמן אחד, גישה ישירה. הכל דרך אפליקציה אחת.</span>
+          </p>
           <div class="hero-actions">
-            <a href="#apply" class="btn-primary">Apply to Join</a>
-            <span class="hero-note">Every application reviewed personally by Coach Yoni</span>
+            <a href="#apply" class="btn-primary"><span data-en>Apply to Join</span><span data-he>הצטרף עכשיו</span></a>
+            <span class="hero-note"><span data-en>Every application reviewed personally by Coach Yoni</span><span data-he>כל בקשה נבדקת אישית על ידי המאמן יוני</span></span>
           </div>
         </div>
         <div class="reveal in hero-phone-wrap">
@@ -351,10 +383,10 @@
   <div class="cred-bar">
     <div class="wrap">
       <div class="cred-list">
-        <div class="cred-item"><span>Achievement</span>2x Israeli National Champion</div>
-        <div class="cred-item"><span>College</span>NCAA Division I</div>
-        <div class="cred-item"><span>Certified</span>Tel Aviv University</div>
-        <div class="cred-item"><span>Available</span>US and International</div>
+        <div class="cred-item"><span class="cred-label"><span data-en>Achievement</span><span data-he>הישגים</span></span><span data-en>2x Israeli National Champion</span><span data-he>אלוף ישראל פעמיים · נבחרת ישראל</span></div>
+        <div class="cred-item"><span class="cred-label"><span data-en>College</span><span data-he>ליגה</span></span><span>NCAA Division I</span></div>
+        <div class="cred-item"><span class="cred-label"><span data-en>Certified</span><span data-he>לימודים</span></span><span data-en>Tel Aviv University</span><span data-he>הנדסה אזרחית, GWU</span></div>
+        <div class="cred-item"><span class="cred-label"><span data-en>Available</span><span data-he>זמינות</span></span><span data-en>US and International</span><span data-he>ארה"ב ובינלאומי</span></div>
       </div>
     </div>
   </div>
@@ -364,10 +396,13 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <span class="tag">Your Coach</span>
+          <span class="tag"><span data-en>Your Coach</span><span data-he>המאמן שלך</span></span>
           <h2 class="section-title">Yehonatan (Yoni) Haim</h2>
         </div>
-        <p class="section-desc">You train directly with me. One coach, one plan, start to finish.</p>
+        <p class="section-desc">
+          <span data-en>You train directly with me. One coach, one plan, start to finish.</span>
+          <span data-he>אתה מתאמן איתי ישירות. מאמן אחד, תוכנית אחת, מההתחלה ועד הסוף.</span>
+        </p>
       </div>
 
       <div class="coach-grid reveal">
@@ -375,24 +410,31 @@
           <img src="yoni-coach.jpg" alt="Yoni Haim, running coach">
         </div>
         <div class="coach-copy">
-          <p>I grew up competing in Israel, won the national championship twice, and came to the United States to run Division I track. I hold a coaching certification from Tel Aviv University. I've been around the best coaches and athletes in the sport. This is what I do.</p>
-          <p>Before I write a single workout, I get to know you. Your race, your history, your schedule, how you've trained before. Then I build a plan around your season and adjust it every week based on how you're actually doing.</p>
-          <p>I coach 5k, 10k, track, half marathon, marathon, and high school runners. Whatever your goal is, I'll get you there.</p>
+          <div data-en>
+            <p>I grew up competing in Israel, won the national championship twice, and came to the United States to run Division I track. I hold a coaching certification from Tel Aviv University. I've been around the best coaches and athletes in the sport. This is what I do.</p>
+            <p>Before I write a single workout, I get to know you. Your race, your history, your schedule, how you've trained before. Then I build a plan around your season and adjust it every week based on how you're actually doing.</p>
+            <p>I coach 5k, 10k, track, half marathon, marathon, and high school runners. Whatever your goal is, I'll get you there.</p>
+          </div>
+          <div data-he>
+            <p>אני יוני חיים, אלוף ישראל פעמיים בריצת 3000 מטר מכשולים וחבר נבחרת ישראל. בארבע השנים האחרונות התחרתי בארצות הברית עם אחת הקבוצות הטובות ב-NCAA Division I, והתאמנתי עם מאמנים שעבדו עם הרצים הטובים בעולם.</p>
+            <p>כמאמן, אני מביא את כל מה שלמדתי ישירות אליך. לא משנה באיזה שלב אתה כרץ. יש לי תוכנית בשבילך שבנויה סביבך, שמשתנה לפי הנתונים שלך, ומוביל אותה מאמן שחי את הריצה מבפנים.</p>
+            <p>הצטרף ל-Team Haim. השקע בעצמך.</p>
+          </div>
           <div class="coach-facts">
             <div>
-              <p class="coach-fact-k">Achievements</p>
-              <p class="coach-fact-v">2x Israeli National Champion, National Team</p>
+              <p class="coach-fact-k"><span data-en>Achievements</span><span data-he>הישגים</span></p>
+              <p class="coach-fact-v"><span data-en>2x Israeli National Champion, National Team</span><span data-he>אלוף ישראל פעמיים · נבחרת ישראל</span></p>
             </div>
             <div>
-              <p class="coach-fact-k">College</p>
+              <p class="coach-fact-k"><span data-en>College</span><span data-he>ליגה</span></p>
               <p class="coach-fact-v">NCAA Division I</p>
             </div>
             <div>
-              <p class="coach-fact-k">Certification</p>
-              <p class="coach-fact-v">Tel Aviv University</p>
+              <p class="coach-fact-k"><span data-en>Certification</span><span data-he>לימודים</span></p>
+              <p class="coach-fact-v"><span data-en>Tel Aviv University</span><span data-he>הנדסה אזרחית, GWU</span></p>
             </div>
             <div>
-              <p class="coach-fact-k">Events</p>
+              <p class="coach-fact-k"><span data-en>Events</span><span data-he>ענפים</span></p>
               <p class="coach-fact-v">5k · 10k · Track · Half · Marathon · HS</p>
             </div>
           </div>
@@ -406,32 +448,47 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <span class="tag">The App</span>
-          <h2 class="section-title">Your entire training, one place</h2>
+          <span class="tag"><span data-en>The App</span><span data-he>האפליקציה</span></span>
+          <h2 class="section-title"><span data-en>Your entire training, one place</span><span data-he>כל האימון שלך, במקום אחד</span></h2>
         </div>
-        <p class="section-desc">Four screens that separate runners who stay consistent from those who don't.</p>
+        <p class="section-desc">
+          <span data-en>Four screens that separate runners who stay consistent from those who don't.</span>
+          <span data-he>ארבעה מסכים שמבדילים בין רצים שמתמידים לבין אלה שלא.</span>
+        </p>
       </div>
 
       <div class="features reveal">
         <div class="feature-card">
           <p class="feature-num">01</p>
-          <h3>Home</h3>
-          <p>You open the app and see today's workout, your week in numbers, and a note from me. Nothing to figure out.</p>
+          <h3><span data-en>Home</span><span data-he>בית</span></h3>
+          <p>
+            <span data-en>You open the app and see today's workout, your week in numbers, and a note from me. Nothing to figure out.</span>
+            <span data-he>אתה פותח את האפליקציה ורואה את האימון של היום, את השבוע שלך במספרים, והערה ממני. שום דבר לא צריך להבין לבד.</span>
+          </p>
         </div>
         <div class="feature-card">
           <p class="feature-num">02</p>
-          <h3>Plan</h3>
-          <p>Your entire season mapped out, from the first base week to race day. Every phase, every week.</p>
+          <h3><span data-en>Plan</span><span data-he>תוכנית</span></h3>
+          <p>
+            <span data-en>Your entire season mapped out, from the first base week to race day. Every phase, every week.</span>
+            <span data-he>כל העונה שלך ממופה, מהשבוע הראשון ועד יום המרוץ. כל שלב, כל שבוע.</span>
+          </p>
         </div>
         <div class="feature-card">
           <p class="feature-num">03</p>
-          <h3>Stats</h3>
-          <p>Your km, pace, and effort over time. Numbers that show what's actually happening in your training.</p>
+          <h3><span data-en>Stats</span><span data-he>סטטיסטיקות</span></h3>
+          <p>
+            <span data-en>Your km, pace, and effort over time. Numbers that show what's actually happening in your training.</span>
+            <span data-he>הק"מ, הקצב והמאמץ שלך לאורך זמן. מספרים שמראים מה באמת קורה באימונים שלך.</span>
+          </p>
         </div>
         <div class="feature-card">
           <p class="feature-num">04</p>
-          <h3>Coach Chat</h3>
-          <p>Ask me anything directly. A question about a set, a pain, a change to the plan. You get a reply from me.</p>
+          <h3><span data-en>Coach Chat</span><span data-he>צ'אט עם המאמן</span></h3>
+          <p>
+            <span data-en>Ask me anything directly. A question about a set, a pain, a change to the plan. You get a reply from me.</span>
+            <span data-he>שאל אותי כל דבר ישירות. שאלה על סט, כאב, שינוי בתוכנית. תקבל תשובה ממני.</span>
+          </p>
         </div>
       </div>
 
@@ -439,9 +496,12 @@
 
         <div class="showcase-item reveal">
           <div class="showcase-copy">
-            <span class="showcase-label">01 Dashboard</span>
-            <h3 class="showcase-title">Open the app and your day is clear</h3>
-            <p class="showcase-body">Today's workout, your week's progress, and a note from your coach. No guessing, nothing to search for. You just run. That's how consistency stops being a decision.</p>
+            <span class="showcase-label"><span data-en>01 Dashboard</span><span data-he>01 לוח הבית</span></span>
+            <h3 class="showcase-title"><span data-en>Open the app and your day is clear</span><span data-he>פותח את האפליקציה והיום שלך ברור</span></h3>
+            <p class="showcase-body">
+              <span data-en>Today's workout, your week's progress, and a note from your coach. No guessing, nothing to search for. You just run. That's how consistency stops being a decision.</span>
+              <span data-he>האימון של היום, ההתקדמות השבועית שלך, והערה מהמאמן. בלי ניחושים, בלי לחפש. אתה פשוט רץ. ככה עקביות מפסיקה להיות החלטה.</span>
+            </p>
           </div>
           <div class="showcase-phone">
             <img src="sc-home.png" alt="Team Haim home screen">
@@ -450,9 +510,12 @@
 
         <div class="showcase-item reveal">
           <div class="showcase-copy">
-            <span class="showcase-label">02 Season Journey</span>
-            <h3 class="showcase-title">You know where you're headed</h3>
-            <p class="showcase-body">Base, build, peak, race day. Every phase has a date and a purpose. When you see the whole season laid out, individual workouts make sense, even the hard ones and the easy ones.</p>
+            <span class="showcase-label"><span data-en>02 Season Journey</span><span data-he>02 מסע העונה</span></span>
+            <h3 class="showcase-title"><span data-en>You know where you're headed</span><span data-he>אתה יודע לאן אתה הולך</span></h3>
+            <p class="showcase-body">
+              <span data-en>Base, build, peak, race day. Every phase has a date and a purpose. When you see the whole season laid out, individual workouts make sense, even the hard ones and the easy ones.</span>
+              <span data-he>בסיס, בנייה, שיא, יום המרוץ. לכל שלב יש תאריך ומטרה. כשאתה רואה את כל העונה פרוסה לפניך, כל אימון בודד מקבל משמעות - גם הקשים וגם הקלים.</span>
+            </p>
           </div>
           <div class="showcase-phone">
             <img src="sc-season.png" alt="Team Haim season journey screen">
@@ -461,9 +524,12 @@
 
         <div class="showcase-item reveal">
           <div class="showcase-copy">
-            <span class="showcase-label">03 Training Data</span>
-            <h3 class="showcase-title">Everything you've done is tracked</h3>
-            <p class="showcase-body">Your pace over time, how far you've run, how hard you've pushed. Real numbers showing the real picture. Seeing progress is what keeps you going on the days you don't feel like it.</p>
+            <span class="showcase-label"><span data-en>03 Training Data</span><span data-he>03 נתוני אימון</span></span>
+            <h3 class="showcase-title"><span data-en>Everything you've done is tracked</span><span data-he>כל מה שעשית מתועד</span></h3>
+            <p class="showcase-body">
+              <span data-en>Your pace over time, how far you've run, how hard you've pushed. Real numbers showing the real picture. Seeing progress is what keeps you going on the days you don't feel like it.</span>
+              <span data-he>הקצב שלך לאורך זמן, כמה רצת, כמה השקעת. מספרים אמיתיים שמראים את התמונה האמיתית. לראות התקדמות זה מה שממשיך אותך גם בימים שלא מתחשק.</span>
+            </p>
           </div>
           <div class="showcase-phone">
             <img src="sc-stats.png" alt="Team Haim statistics screen">
@@ -472,9 +538,12 @@
 
         <div class="showcase-item reveal">
           <div class="showcase-copy">
-            <span class="showcase-label">04 Workout Detail</span>
-            <h3 class="showcase-title">Not just the distance. Everything.</h3>
-            <p class="showcase-body">The sets, the pace, the target, and a personal note from your coach. Everything you need for the workout, right there. A clear plan means no doubt, and no doubt means you actually execute.</p>
+            <span class="showcase-label"><span data-en>04 Workout Detail</span><span data-he>04 פרטי האימון</span></span>
+            <h3 class="showcase-title"><span data-en>Not just the distance. Everything.</span><span data-he>לא רק המרחק. הכל.</span></h3>
+            <p class="showcase-body">
+              <span data-en>The sets, the pace, the target, and a personal note from your coach. Everything you need for the workout, right there. A clear plan means no doubt, and no doubt means you actually execute.</span>
+              <span data-he>הסטים, הקצב, המטרה, והערה אישית מהמאמן. כל מה שאתה צריך לאימון, נמצא שם. תוכנית ברורה זה בלי ספק, ובלי ספק זה שאתה באמת מבצע.</span>
+            </p>
           </div>
           <div class="showcase-phone">
             <img src="sc-plan.png" alt="Team Haim workout plan screen">
@@ -490,27 +559,30 @@
     <div class="wrap">
       <div class="section-head reveal" style="margin-bottom:44px;">
         <div>
-          <span class="tag">Apply</span>
-          <h2 class="section-title">Apply for Coaching</h2>
+          <span class="tag"><span data-en>Apply</span><span data-he>הרשמה</span></span>
+          <h2 class="section-title"><span data-en>Apply for Coaching</span><span data-he>הרשמה לליווי אימונים</span></h2>
         </div>
       </div>
 
       <div class="apply-grid reveal">
         <div class="apply-copy">
-          <h2>Spots are limited on purpose.</h2>
-          <p>I work with a small group so I can actually coach each person. Fill out the form and I'll get back to you directly.</p>
+          <h2><span data-en>Spots are limited on purpose.</span><span data-he>מספר המקומות מוגבל בכוונה.</span></h2>
+          <p>
+            <span data-en>I work with a small group so I can actually coach each person. Fill out the form and I'll get back to you directly.</span>
+            <span data-he>אני עובד עם קבוצה קטנה כדי שאוכל לתת ליווי אמיתי לכל אחד. מלא את הטופס ואחזור אליך ישירות.</span>
+          </p>
           <div class="apply-steps">
             <div class="apply-step">
               <span class="apply-step-n">01</span>
-              <span>Tell me your event, your level, and what you're training for.</span>
+              <span><span data-en>Tell me your event, your level, and what you're training for.</span><span data-he>ספר לי מה הענף שלך, הרמה שלך, ולמה אתה מתאמן.</span></span>
             </div>
             <div class="apply-step">
               <span class="apply-step-n">02</span>
-              <span>I'll review it and get back to you personally, usually within a day.</span>
+              <span><span data-en>I'll review it and get back to you personally, usually within a day.</span><span data-he>אני אבדוק ואחזור אליך אישית, בדרך כלל תוך יום.</span></span>
             </div>
             <div class="apply-step">
               <span class="apply-step-n">03</span>
-              <span>If it's a good fit, I'll invite you to set up your profile on the Team Haim app.</span>
+              <span><span data-en>If it's a good fit, I'll invite you to set up your profile on the Team Haim app.</span><span data-he>אם זה מתאים, אזמין אותך להקים פרופיל באפליקציית Team Haim.</span></span>
             </div>
           </div>
         </div>
@@ -518,11 +590,11 @@
         <form id="joinForm" novalidate>
           <div class="field-row">
             <div class="field">
-              <label for="name">Full Name</label>
+              <label for="name"><span data-en>Full Name</span><span data-he>שם מלא</span></label>
               <input type="text" id="name" name="name" placeholder="Your name" required>
             </div>
             <div class="field">
-              <label for="phone">Phone / WhatsApp</label>
+              <label for="phone"><span data-en>Phone / WhatsApp</span><span data-he>טלפון / וואטסאפ</span></label>
               <input type="tel" id="phone" name="phone" placeholder="+1 ...">
             </div>
           </div>
@@ -532,7 +604,7 @@
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="event">Primary Event</label>
+              <label for="event"><span data-en>Primary Event</span><span data-he>ענף עיקרי</span></label>
               <select id="event" name="event" required>
                 <option value="" disabled selected>Select event</option>
                 <option>Middle Distance (800m / 1500m)</option>
@@ -544,7 +616,7 @@
               </select>
             </div>
             <div class="field">
-              <label for="level">Current Level</label>
+              <label for="level"><span data-en>Current Level</span><span data-he>רמה נוכחית</span></label>
               <select id="level" name="level" required>
                 <option value="" disabled selected>Select level</option>
                 <option>High School</option>
@@ -556,11 +628,14 @@
             </div>
           </div>
           <div class="field">
-            <label for="goals">Your Goals This Season</label>
+            <label for="goals"><span data-en>Your Goals This Season</span><span data-he>המטרות שלך לעונה הזו</span></label>
             <textarea id="goals" name="goals" placeholder="What race or goal are you training for right now?"></textarea>
           </div>
-          <button type="submit" class="submit-btn">Send Application</button>
-<p class="form-note">Opens WhatsApp with your application sent directly to Coach Yoni. By submitting, you agree to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</p>
+          <button type="submit" class="submit-btn"><span data-en>Send Application</span><span data-he>שלח בקשה</span></button>
+<p class="form-note">
+  <span data-en>Opens WhatsApp with your application sent directly to Coach Yoni. By submitting, you agree to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</span>
+  <span data-he>פותח וואטסאפ עם הבקשה שלך נשלחת ישירות למאמן יוני. בשליחת הטופס אתה מסכים ל<a href="/terms">תנאי השימוש</a> ול<a href="/privacy">מדיניות הפרטיות</a> שלנו.</span>
+</p>
         </form>
       </div>
     </div>
@@ -573,14 +648,14 @@
     <div class="footer-grid">
       <span class="brand">Team Haim</span>
      <div class="footer-links">
-  <a href="#apply">Apply to Join</a>
+  <a href="#apply"><span data-en>Apply to Join</span><span data-he>הצטרף עכשיו</span></a>
   <a href="https://wa.me/972558814177" target="_blank" rel="noopener">WhatsApp</a>
   <a href="mailto:yoni.haim@teamhaim.com">yoni.haim@teamhaim.com</a>
-  <a href="/terms">Terms of Service</a>
-  <a href="/privacy">Privacy Policy</a>
+  <a href="/terms"><span data-en>Terms of Service</span><span data-he>תנאי שימוש</span></a>
+  <a href="/privacy"><span data-en>Privacy Policy</span><span data-he>מדיניות פרטיות</span></a>
 </div>
     </div>
-    <p class="footer-meta">© 2026 Team Haim. Elite personal running coaching.</p>
+    <p class="footer-meta"><span data-en>© 2026 Team Haim. Elite personal running coaching.</span><span data-he>© 2026 Team Haim. ליווי אישי לרצים.</span></p>
   </div>
 </footer>
 
@@ -589,6 +664,14 @@
     entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
   }, { threshold: 0.06 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  document.getElementById('lang-btn').addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-lang') === 'he' ? 'en' : 'he';
+    document.documentElement.setAttribute('lang', next);
+    document.documentElement.setAttribute('dir', next === 'he' ? 'rtl' : 'ltr');
+    document.documentElement.setAttribute('data-lang', next);
+    localStorage.setItem('th-lang', next);
+  });
 
   document.getElementById('joinForm').addEventListener('submit', function(e) {
     e.preventDefault();
