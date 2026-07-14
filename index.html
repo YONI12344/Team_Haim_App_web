@@ -435,6 +435,18 @@
   }
   .apply-step-n { font-family:var(--serif); font-style:italic; color:var(--gold); font-size:15px; flex-shrink:0; min-width:2em; }
 
+  .wa-quick {
+    margin-top:28px; display:inline-flex; align-items:center; gap:12px;
+    font-size:13.5px; color:var(--ivory-dim); transition:color .3s;
+  }
+  .wa-quick:hover { color:var(--ivory); }
+  .wa-quick-icon {
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    width:32px; height:32px; border-radius:50%; background:#25D366; color:#0b1f14;
+    transition:transform .3s;
+  }
+  .wa-quick:hover .wa-quick-icon { transform:scale(1.08); }
+
   form { display:flex; flex-direction:column; }
   .field { display:flex; flex-direction:column; gap:8px; margin-bottom:30px; }
   .field label {
@@ -1076,6 +1088,12 @@
               <span><span data-en>If it's a good fit, I'll invite you to set up your profile on the Team Haim app.</span><span data-he>אם זה מתאים, אזמין אותך להקים פרופיל באפליקציית Team Haim.</span></span>
             </div>
           </div>
+          <a href="#" id="wa-quick" class="wa-quick" target="_blank" rel="noopener">
+            <span class="wa-quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.96-.93-.26-.1-.46-.15-.65.15-.19.29-.75.93-.92 1.12-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.43-.86-.76-1.44-1.71-1.6-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.56-.01-.19 0-.51.07-.78.36-.26.29-1.02 1-1.02 2.43 0 1.43 1.05 2.82 1.19 3.01.15.19 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.94-1.37.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.34z"/><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2zm0 18.1c-1.66 0-3.2-.46-4.52-1.26l-.32-.19-3 .79.8-2.93-.21-.3A8.09 8.09 0 0 1 3.9 12c0-4.48 3.65-8.1 8.12-8.1 4.47 0 8.1 3.62 8.1 8.1s-3.63 8.1-8.1 8.1z"/></svg>
+            </span>
+            <span><span data-en>Have a quick question? Message me directly</span><span data-he>יש לך שאלה מהירה? כתוב לי ישירות</span></span>
+          </a>
         </div>
 
         <form id="joinForm" novalidate>
@@ -1164,12 +1182,24 @@
     hdr.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
+  const waQuick = document.getElementById('wa-quick');
+  const waMsg = {
+    en: 'Hey Yoni, I want to run with you!',
+    he: 'היי יוני, אני רוצה לרוץ איתך!'
+  };
+  function updateWaQuick() {
+    const lang = document.documentElement.getAttribute('data-lang') === 'he' ? 'he' : 'en';
+    waQuick.href = 'https://wa.me/972558814177?text=' + encodeURIComponent(waMsg[lang]);
+  }
+  updateWaQuick();
+
   document.getElementById('lang-btn').addEventListener('click', () => {
     const next = document.documentElement.getAttribute('data-lang') === 'he' ? 'en' : 'he';
     document.documentElement.setAttribute('lang', next);
     document.documentElement.setAttribute('dir', next === 'he' ? 'rtl' : 'ltr');
     document.documentElement.setAttribute('data-lang', next);
     localStorage.setItem('th-lang', next);
+    updateWaQuick();
   });
 
   document.getElementById('joinForm').addEventListener('submit', function(e) {
