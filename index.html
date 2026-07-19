@@ -387,30 +387,20 @@
   .feature-card h3 { font-family:var(--serif); font-weight:500; font-size:19px; color:var(--ivory); margin-bottom:9px; }
   .feature-card p { font-size:13.5px; color:var(--ivory-dim); line-height:1.8; }
 
-  .showcase { margin-top:96px; }
-  .showcase-item {
-    display:grid; grid-template-columns:1fr 270px;
-    gap:80px; align-items:center;
-    padding-block:72px;
-    border-top:1px solid var(--hair);
-  }
-  .showcase-item:first-child { border-top:none; padding-top:0; }
-  .showcase-label {
-    display:flex; align-items:center; gap:12px;
-    font-size:9.5px; font-weight:500; text-transform:uppercase; letter-spacing:.3em;
-    color:var(--gold); margin-bottom:18px;
-  }
-  .showcase-label::before { content:""; width:26px; height:1px; background:var(--gold-dim); }
-  .showcase-title { font-family:var(--serif); font-weight:500; font-size:clamp(22px,2.6vw,32px); letter-spacing:.005em; margin-bottom:16px; line-height:1.25; color:var(--ivory); }
-  .showcase-body { font-size:15px; color:var(--ivory-dim); line-height:1.9; max-width:32em; }
-  .showcase-phone {
-    width:100%; border:1px solid var(--hair); border-radius:36px; padding:8px;
+  .app-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .app-shot-frame {
+    border:1px solid var(--hair); border-radius:20px; padding:6px;
     background:#0A101D;
-    box-shadow:0 40px 72px -32px rgba(4,7,14,.85);
-    transition:border-color .8s var(--ease), transform .8s var(--ease);
+    box-shadow:0 24px 44px -24px rgba(4,7,14,.8);
+    transition:border-color .6s var(--ease), transform .6s var(--ease);
   }
-  .showcase-item:hover .showcase-phone { border-color:var(--gold-dim); transform:translateY(-6px); }
-  .showcase-phone img { width:100%; border-radius:29px; aspect-ratio:9/17; object-fit:cover; object-position:center bottom; }
+  .app-shot:hover .app-shot-frame { border-color:var(--gold-dim); transform:translateY(-4px); }
+  .app-shot-frame img { width:100%; display:block; border-radius:14px; aspect-ratio:9/17; object-fit:cover; object-position:center bottom; }
+  .app-shot-label {
+    margin-top:14px; font-size:9px; font-weight:500; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  .app-shot-cap { margin-top:4px; font-size:12px; color:var(--ivory-dim); line-height:1.55; }
 
   /* ── RESULTS ── */
   .review-grid { display:flex; flex-direction:column; gap:56px; }
@@ -575,10 +565,7 @@
     .features { grid-template-columns:1fr 1fr; gap:36px 32px; }
     .feature-card { border-top:1px solid var(--hair); }
 
-    .showcase { margin-top:64px; }
-    .showcase-item { grid-template-columns:1fr; gap:36px; padding-block:52px; }
-    .showcase-item:first-child { padding-top:0; }
-    .showcase-phone { width:min(230px,62vw); margin-inline:auto; order:-1; }
+    .app-grid { grid-template-columns:repeat(2,1fr); gap:24px 20px; }
 
     .review-card { grid-template-columns:1fr; gap:24px; text-align:center; }
     .review-shot { width:min(240px,70vw); margin-inline:auto; }
@@ -644,10 +631,9 @@
 
     .features { grid-template-columns:1fr; gap:28px; }
 
-    .showcase-item { padding-block:44px; gap:28px; }
-    .showcase-phone { width:min(200px,58vw); }
-    .showcase-title { font-size:clamp(19px,6vw,24px); }
-    .showcase-body { font-size:14px; }
+    .app-grid { gap:18px 14px; }
+    .app-shot-label { font-size:8.5px; }
+    .app-shot-cap { font-size:11px; }
 
     .apply-copy h2 { font-size:clamp(20px,6.5vw,26px); }
     .apply-step { font-size:13.5px; gap:16px; }
@@ -832,62 +818,30 @@
         </p>
       </div>
 
-      <div class="showcase">
+      <div class="app-grid reveal">
 
-        <div class="showcase-item reveal">
-          <div class="showcase-copy">
-            <span class="showcase-label"><span data-en>Dashboard</span><span data-he>לוח הבית</span></span>
-            <h3 class="showcase-title"><span data-en>Your day, at a glance</span><span data-he>היום שלך, במבט אחד</span></h3>
-            <p class="showcase-body">
-              <span data-en>Today's workout and a note from your coach, the moment you open the app.</span>
-              <span data-he>האימון של היום והערה מהמאמן, ברגע שאתה פותח את האפליקציה.</span>
-            </p>
-          </div>
-          <div class="showcase-phone">
-            <img src="sc-home.png" alt="Team Haim home screen" loading="lazy">
-          </div>
+        <div class="app-shot">
+          <div class="app-shot-frame"><img src="sc-home.png" alt="Team Haim home screen" loading="lazy"></div>
+          <p class="app-shot-label"><span data-en>Dashboard</span><span data-he>לוח הבית</span></p>
+          <p class="app-shot-cap"><span data-en>Today's workout, at a glance</span><span data-he>האימון של היום, במבט אחד</span></p>
         </div>
 
-        <div class="showcase-item reveal">
-          <div class="showcase-copy">
-            <span class="showcase-label"><span data-en>Season Journey</span><span data-he>מסע העונה</span></span>
-            <h3 class="showcase-title"><span data-en>Your whole season, mapped</span><span data-he>כל העונה שלך, ממופה</span></h3>
-            <p class="showcase-body">
-              <span data-en>Base, build, peak, race day. Every phase, every week, in one view.</span>
-              <span data-he>בסיס, בנייה, שיא, יום המרוץ. כל שלב, כל שבוע, במבט אחד.</span>
-            </p>
-          </div>
-          <div class="showcase-phone">
-            <img src="sc-season.png" alt="Team Haim season journey screen" loading="lazy">
-          </div>
+        <div class="app-shot">
+          <div class="app-shot-frame"><img src="sc-season.png" alt="Team Haim season journey screen" loading="lazy"></div>
+          <p class="app-shot-label"><span data-en>Season</span><span data-he>עונה</span></p>
+          <p class="app-shot-cap"><span data-en>Your whole season, mapped</span><span data-he>כל העונה שלך, ממופה</span></p>
         </div>
 
-        <div class="showcase-item reveal">
-          <div class="showcase-copy">
-            <span class="showcase-label"><span data-en>Training Data</span><span data-he>נתוני אימון</span></span>
-            <h3 class="showcase-title"><span data-en>Every mile, tracked</span><span data-he>כל קילומטר, מתועד</span></h3>
-            <p class="showcase-body">
-              <span data-en>Pace, distance, and effort over time, the real picture of your progress.</span>
-              <span data-he>קצב, מרחק ומאמץ לאורך זמן, התמונה האמיתית של ההתקדמות שלך.</span>
-            </p>
-          </div>
-          <div class="showcase-phone">
-            <img src="sc-stats.png" alt="Team Haim statistics screen" loading="lazy">
-          </div>
+        <div class="app-shot">
+          <div class="app-shot-frame"><img src="sc-stats.png" alt="Team Haim statistics screen" loading="lazy"></div>
+          <p class="app-shot-label"><span data-en>Stats</span><span data-he>נתונים</span></p>
+          <p class="app-shot-cap"><span data-en>Every mile, tracked</span><span data-he>כל קילומטר, מתועד</span></p>
         </div>
 
-        <div class="showcase-item reveal">
-          <div class="showcase-copy">
-            <span class="showcase-label"><span data-en>Workout Detail</span><span data-he>פרטי האימון</span></span>
-            <h3 class="showcase-title"><span data-en>Every set, right there</span><span data-he>כל סט, נמצא שם</span></h3>
-            <p class="showcase-body">
-              <span data-en>Sets, pace, target, and a personal note from your coach. Nothing to guess.</span>
-              <span data-he>סטים, קצב, מטרה, והערה אישית מהמאמן. שום דבר לא צריך לנחש.</span>
-            </p>
-          </div>
-          <div class="showcase-phone">
-            <img src="sc-plan.png" alt="Team Haim workout plan screen" loading="lazy">
-          </div>
+        <div class="app-shot">
+          <div class="app-shot-frame"><img src="sc-plan.png" alt="Team Haim workout plan screen" loading="lazy"></div>
+          <p class="app-shot-label"><span data-en>Workout</span><span data-he>אימון</span></p>
+          <p class="app-shot-cap"><span data-en>Every set, right there</span><span data-he>כל סט, נמצא שם</span></p>
         </div>
 
       </div>
