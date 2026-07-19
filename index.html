@@ -412,6 +412,29 @@
   .showcase-item:hover .showcase-phone { border-color:var(--gold-dim); transform:translateY(-6px); }
   .showcase-phone img { width:100%; border-radius:29px; aspect-ratio:9/17; object-fit:cover; object-position:center bottom; }
 
+  /* ── RESULTS ── */
+  .review-grid { display:flex; flex-direction:column; gap:56px; }
+  .review-card {
+    display:grid; grid-template-columns:230px 1fr; gap:40px; align-items:center;
+  }
+  .review-shot {
+    border:1px solid var(--hair); border-radius:20px; overflow:hidden; padding:6px;
+    background:#0A101D; box-shadow:0 30px 60px -28px rgba(4,7,14,.8);
+    transition:border-color .8s var(--ease);
+  }
+  .review-card:hover .review-shot { border-color:var(--gold-dim); }
+  .review-shot img { width:100%; display:block; border-radius:15px; }
+  .review-quote {
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(16px,1.8vw,20px); line-height:1.75; color:var(--ivory);
+  }
+  .review-quote::before { content:"\201C"; color:var(--gold); }
+  .review-quote::after { content:"\201D"; color:var(--gold); }
+  .review-meta {
+    margin-top:16px; font-size:10.5px; font-weight:500; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--ivory-ftn);
+  }
+
   /* ── APPLY ── */
   .apply {
     position:relative;
@@ -556,6 +579,10 @@
     .showcase-item { grid-template-columns:1fr; gap:36px; padding-block:52px; }
     .showcase-item:first-child { padding-top:0; }
     .showcase-phone { width:min(230px,62vw); margin-inline:auto; order:-1; }
+
+    .review-card { grid-template-columns:1fr; gap:24px; text-align:center; }
+    .review-shot { width:min(240px,70vw); margin-inline:auto; }
+    .review-quote::before, .review-quote::after { display:none; }
 
     .apply-grid { grid-template-columns:1fr; gap:56px; }
   }
@@ -1069,6 +1096,38 @@
           <div>
             <h3><span data-en>Connected to your tools</span><span data-he>מחובר לכלים שלך</span></h3>
             <p>Garmin · Strava · iOS · Android · WhatsApp</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section" id="results">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag"><span data-en>Results</span><span data-he>תוצאות</span></span>
+        <h2 class="section-title">
+          <span data-en>In their <em>own words.</em></span>
+          <span data-he>במילים <em>שלהם.</em></span>
+        </h2>
+        <p class="section-desc">
+          <span data-en>Real messages, from real athletes, after the work is done.</span>
+          <span data-he>הודעות אמיתיות, מספורטאים אמיתיים, אחרי שהעבודה נגמרת.</span>
+        </p>
+      </div>
+
+      <div class="review-grid reveal">
+        <div class="review-card">
+          <div class="review-shot">
+            <img src="review-1.jpg" alt="WhatsApp message from an athlete thanking Coach Yoni after passing a fitness test" loading="lazy">
+          </div>
+          <div>
+            <p class="review-quote">
+              <span data-en>I came into this with you from a rough starting point, not in shape at all, with one clear goal: be ready for a fitness test in under a month. I was skeptical it was even possible. Thanks to your trust, your professional guidance, and your detailed program, I showed up as ready as I could be, and I actually passed. You're truly a champion.</span>
+              <span data-he>הגעתי לתהליך איתך בנקודת מוצא לא טובה כל כך, לא הייתי בכושר בכלל, ועם מטרה מאוד ברורה: להיות מוכן למבחן ביפים בתוך פחות מחודש. הייתי סקפטי מאוד אם זה בכלל אפשרי. בזכות האמון שלך, הליווי המקצועי והתוכנית המפורטת שלך, הגעתי הכי מוכן שיכולתי למבחן, ובסוף אשכרה גם עברתי. אתה באמת אלוף.</span>
+            </p>
+            <p class="review-meta"><span data-en>Athlete · Fitness test prep</span><span data-he>ספורטאי · הכנה למבחן כושר</span></p>
           </div>
         </div>
       </div>
